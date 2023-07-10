@@ -44,6 +44,13 @@
         </li>
         <!-- .nav-item -->
       {% endfor %}
+    <!-- root -->
+      <li class="nav-item{% if page.layout == 'root' %}{{ " active" }}{% endif %}">
+        <a href="https://arctic.technology/" class="nav-link">
+          <i class="fa-fw fas fa-home"></i>
+          <span>{{ site.data.locales[include.lang].tabs.root}}</span>
+        </a>
+      </li>
     </ul>
     <!-- ul.nav.flex-column -->
 

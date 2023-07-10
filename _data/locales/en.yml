@@ -15,7 +15,7 @@ tabs:
   tags: Tags
   archives: Archives
   about: About
-#  root: Arctic.Technology
+  root: Arctic.Technology
 
 # the text displayed in the search bar & search results
 search:
