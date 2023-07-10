@@ -1,0 +1,82 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Публикация
+  category: Категория
+  tag: Таг
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Начало
+  categories: Категории
+  tags: Тагове
+  archives: Архив
+  about: За мен
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: търси
+  cancel: Отмени
+  no_results: Упс! Не са намерени резултати.
+
+panel:
+  lastmod: Наскоро обновени
+  trending_tags: Популярни тагове
+  toc: Съдържание
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Тази публикация е лицензирана под :LICENSE_NAME от автора.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Някои права запазени.
+  verbose: >-
+    Освен ако не е посочено друго, публикациите в блога на този сайт са лицензирани
+    под лиценза Creative Commons Attribution 4.0 (CC BY 4.0) от автора.
+
+meta: 'See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</href>'
+
+not_found:
+  statment: Съжалявам, но на този URL адрес няма налично съдържание.
+
+notification:
+  update_found: Налична е нова версия на съдържанието.
+  update: Обнови
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Автор
+  posted: Публикувана
+  updated: Обновена
+  words: думи
+  pageview_measure: преглеждания
+  read_time:
+    unit: мин
+    prompt: четиво
+  relate_posts: Още за четене
+  share: Споделете
+  button:
+    next: По-нови
+    previous: По-стари
+    copy_code:
+      succeed: Копирано!
+    share_link:
+      title: Копирай линк
+      succeed: Линкът е копиран успешно!
+
+# categories page
+categories:
+  category_measure:
+    singular: категория
+    plural: категории
+  post_measure:
+    singular: публикация
+    plural: публикации

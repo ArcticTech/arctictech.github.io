@@ -1,0 +1,90 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Příspěvek
+  category: Kategorie
+  tag: Štítek
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Domů
+  categories: Kategorie
+  tags: Štítky
+  archives: Archivy
+  about: O mně
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: hledat
+  cancel: Zrušit
+  no_results: Ups! Žádný výsledek nenalezen.
+
+panel:
+  lastmod: Nedávno aktualizováno
+  trending_tags: Trendy štítky
+  toc: Obsah
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Tento příspěvek je licencován pod :LICENSE_NAME autorem.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Některá práva vyhrazena.
+  verbose: >-
+    Pokud není uvedeno jinak, jsou příspěvky na tomto webu licencovány
+    pod licencí Creative Commons Attribution 4.0 International (CC BY 4.0) Licence autora.
+
+meta: 'See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</href>'
+
+not_found:
+  statment: Omlouváme se, adresu URL jsme špatně umístili nebo odkazuje na něco, co neexistuje.
+
+notification:
+  update_found: Je k dispozici nová verze obsahu.
+  update: Aktualizace
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Od
+  posted: Zveřejněno
+  updated: Aktualizováno
+  words: slova
+  pageview_measure: zhlednutí
+  read_time:
+    unit: minut
+    prompt: čtení
+  relate_posts: Další čtení
+  share: Sdílet
+  button:
+    next: Novější
+    previous: Starší
+    copy_code:
+      succeed: Zkopírováno!
+    share_link:
+      title: Kopírovat odkaz
+      succeed: Zkopírováno!
+
+# Date time format.
+# See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
+df:
+  post:
+    strftime: "%b %e, %Y"
+    dayjs: "ll"
+  archives:
+    strftime: "%b"
+    dayjs: "MMM"
+
+# categories page
+categories:
+  category_measure: kategorie
+  post_measure:
+    singular: příspěvěk
+    plural: příspěvky

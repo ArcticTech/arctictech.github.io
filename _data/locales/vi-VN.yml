@@ -1,0 +1,77 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Bài viết
+  category: Danh mục
+  tag: Thẻ
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Trang chủ
+  categories: Các danh mục
+  tags: Các thẻ
+  archives: Lưu trữ
+  about: Giới thiệu
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: tìm kiếm
+  cancel: Hủy
+  no_results: Không có kết quả tìm kiếm.
+
+panel:
+  lastmod: Mới cập nhật
+  trending_tags: Các thẻ thịnh hành
+  toc: Mục lục
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Bài viết này được cấp phép bởi tác giả theo giấy phép :LICENSE_NAME.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Một số quyền được bảo lưu.
+  verbose: >-
+    Trừ khi có ghi chú khác, các bài viết đăng trên trang này được cấp phép bởi tác giả theo giấy phép Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: Xin lỗi, chúng tôi đã đặt nhầm URL hoặc đường dẫn trỏ đến một trang nào đó không tồn tại.
+
+notification:
+  update_found: Đã có phiên bản mới của nội dung.
+  update: Cập nhật
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Viết bởi
+  posted: Đăng lúc
+  updated: Cập nhật lúc
+  words: từ
+  pageview_measure: lượt xem
+  read_time:
+    unit: phút
+    prompt: đọc
+  relate_posts: Bài viết liên quan
+  share: Chia sẻ
+  button:
+    next: Mới hơn
+    previous: Cũ hơn
+    copy_code:
+      succeed: Đã sao chép!
+    share_link:
+      title: Sao chép đường dẫn
+      succeed: Đã sao chép đường dẫn thành công!
+
+# categories page
+categories:
+  category_measure: danh mục
+  post_measure: bài viết

@@ -1,0 +1,92 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Inlägg #Post
+  category: Kategori #Category
+  tag: Tagga #Tag
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Hem #Home
+  categories: Kategorier #Categories
+  tags: Taggar #Tags
+  archives: Arkiv #Archives
+  about: Om #About
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: sök
+  cancel: Avbryt
+  no_results: Hoppsan! Hittade inga sökträffar.
+
+panel:
+  lastmod: Senast uppdaterad
+  trending_tags: Trendande taggar
+  toc: Innehåll
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Den här posten är publicerad under licensen :LICENSE_NAME av författaren.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Vissa rättigheter är reserverade.
+  verbose: >-
+    Om inte annat anges är blogginläggen på denna webbplats licensierade
+     under Creative Commons Attribution 4.0 International (CC BY 4.0) av författaren.
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: Ursäkta, vi har tappat bort den här webbadressen eller så pekar den på något som inte längre finns.
+
+notification:
+  update_found: Det finns en ny version av innehållet.
+  update: Uppdatera sidan
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Av
+  posted: Postad
+  updated: Uppdaterad
+  words: ord
+  pageview_measure: visningar
+  read_time:
+    unit: min
+    prompt: läsning
+  relate_posts: Mer läsning
+  share: Dela
+  button:
+    next: Nyare
+    previous: Äldre
+    copy_code:
+      succeed: Kopierat!
+    share_link:
+      title: Kopiera länk
+      succeed: Länken har kopierats!
+
+# Date time format.
+# See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
+df:
+  post:
+    strftime: "%b %e, %Y"
+    dayjs: "ll"
+  archives:
+    strftime: "%b"
+    dayjs: "MMM"
+
+# categories page
+categories:
+  category_measure:
+    singular: kategori
+    plural: kategorier
+  post_measure:
+    singular: inlägg
+    plural: inlägg

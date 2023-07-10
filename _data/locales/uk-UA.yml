@@ -1,0 +1,78 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Публікація
+  category: Категорія
+  tag: Тег
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Домашня сторінка
+  categories: Категорії
+  tags: Теги
+  archives: Архів
+  about: Про сайт
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: пошук
+  cancel: Скасувати
+  no_results: Ох! Нічого не знайдено.
+
+panel:
+  lastmod: Нещодавно оновлено
+  trending_tags: Популярні теги
+  toc: Зміст
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Публікація захищена ліцензією :LICENSE_NAME.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Деякі права захищено.
+  verbose: >-
+    Публікації на сайті захищено ліцензією Creative Commons Attribution 4.0 International (CC BY 4.0),
+    якщо інше не вказано в тексті.
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: Вибачте, це посилання вказує на ресурс, що не існує.
+
+notification:
+  update_found: Доступна нова версія вмісту.
+  update: Оновлення
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Автор
+  posted: Час публікації
+  updated: Оновлено
+  words: слів
+  pageview_measure: переглядів
+  read_time:
+    unit: хвилин
+    prompt: читання
+  relate_posts: Вас також може зацікавити
+  share: Поділитися
+  button:
+    next: Попередня публікація
+    previous: Наступна публікація
+    copy_code:
+      succeed: Успішно скопійовано!
+    share_link:
+      title: Скопіювати посилання
+      succeed: Посилання успішно скопійовано!
+
+# categories page
+categories:
+  category_measure: категорії
+  post_measure: публікації

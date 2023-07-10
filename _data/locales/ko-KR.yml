@@ -1,0 +1,85 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: 포스트
+  category: 카테고리
+  tag: 태그
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: 홈
+  categories: 카테고리
+  tags: 태그
+  archives: 아카이브
+  about: 정보
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: 검색
+  cancel: 취소
+  no_results: 검색 결과가 없습니다.
+
+panel:
+  lastmod: 최근 업데이트
+  trending_tags: 인기 태그
+  toc: 바로가기
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: 이 기사는 저작권자의 :LICENSE_NAME 라이센스를 따릅니다.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: 일부 권리 보유
+  verbose: >-
+    명시되지 않는 한 이 사이트의 블로그 게시물은 작성자의
+    Creative Commons Attribution 4.0 International(CC BY 4.0) 라이선스에 따라 사용이 허가되었습니다.
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: 해당 URL은 존재하지 않습니다.
+
+notification:
+  update_found: 새 버전의 콘텐츠를 사용할 수 있습니다.
+  update: 업데이트
+
+# ----- Posts related labels -----
+
+post:
+  written_by: By
+  posted: 게시
+  updated: 업데이트
+  words: 단어
+  pageview_measure: 조회
+  read_time:
+    unit: 분
+    prompt: 읽는 시간
+  relate_posts: 관련된 글
+  share: 공유하기
+  button:
+    next: 다음 글
+    previous: 이전 글
+    copy_code:
+      succeed: 복사되었습니다!
+    share_link:
+      title: 링크 복사하기
+      succeed: 링크가 복사되었습니다!
+
+# Date time format.
+# See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
+df:
+  post:
+    strftime: "%Y/%m/%d"
+    dayjs: "YYYY/MM/DD"
+
+# categories page
+categories:
+  category_measure: 카테고리
+  post_measure: 포스트

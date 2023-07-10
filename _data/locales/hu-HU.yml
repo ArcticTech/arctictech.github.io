@@ -1,0 +1,80 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Bejegyzés
+  category: Kategória
+  tag: Címke
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Kezdőlap
+  categories: Kategóriák
+  tags: Címkék
+  archives: Archívum
+  about: Rólam
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: keresés
+  cancel: Mégse
+  no_results: Oops! Nincs találat a keresésre.
+
+panel:
+  lastmod: Legutóbb frissítve
+  trending_tags: Népszerű Címkék
+  toc: Tartalom
+  links: Blog linkek
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: A bejegyzés :LICENSE_NAME licenccel rendelkezik.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Néhány jog fenntartva.
+  verbose: >-
+    Az oldalon található tartalmak
+    Creative Commons Attribution 4.0 International (CC BY 4.0) licenccel rendelkeznek,
+    hacsak másképp nincs jelezve.
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: Sajnáljuk, az URL-t rosszul helyeztük el, vagy valami nem létezőre mutat.
+
+notification:
+  update_found: Elérhető a tartalom új verziója.
+  update: Frissítés
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Szerző
+  posted: Létrehozva
+  updated: Frissítve
+  words: szó
+  pageview_measure: látogató
+  read_time:
+    unit: perc
+    prompt: elolvasni
+  relate_posts: További olvasnivaló
+  share: Megosztás
+  button:
+    next: Újabb
+    previous: Régebbi
+    copy_code:
+      succeed: Másolva!
+    share_link:
+      title: Link másolása
+      succeed: Link sikeresen másolva!
+
+# categories page
+categories:
+  category_measure: kategória
+  post_measure: bejegyzés

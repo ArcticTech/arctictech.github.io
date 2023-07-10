@@ -1,0 +1,78 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Публикация
+  category: Категория
+  tag: Тег
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Домашняя страница
+  categories: Категории
+  tags: Теги
+  archives: Архив
+  about: О сайте
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: поиск
+  cancel: Отменить
+  no_results: Ох! Ничего не найдено.
+
+panel:
+  lastmod: Недавно обновлено
+  trending_tags: Популярные теги
+  toc: Содержание
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Публикация защищена лицензией :LICENSE_NAME.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Некоторые права защищены.
+  verbose: >-
+    Публикации на сайте защищены лицензией Creative Commons Attribution 4.0 International (CC BY 4.0),
+    если в тексте публикации не указано иное.
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: Извините, эта ссылка указывает на ресурс который не существует.
+
+notification:
+  update_found: Доступна новая версия контента.
+  update: Обновлять
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Автор
+  posted: Время публикации
+  updated: Обновлено
+  words: слов
+  pageview_measure: просмотров
+  read_time:
+    unit: минут
+    prompt: чтения
+  relate_posts: Вам также может быть интересно
+  share: Поделиться
+  button:
+    next: Предыдущая публикация
+    previous: Следующая публикация
+    copy_code:
+      succeed: Скопировано успешно!
+    share_link:
+      title: Скопировать ссылку
+      succeed: Ссылка успешно скопирована!
+
+# categories page
+categories:
+  category_measure: категории
+  post_measure: публикации

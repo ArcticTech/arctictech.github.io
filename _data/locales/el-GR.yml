@@ -1,0 +1,92 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Δημοσίευση
+  category: Κατηγορία
+  tag: Ετικέτα
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: σπίτι
+  categories: Κατηγορίες
+  tags: Ετικέτες
+  archives: Αρχεία
+  about: Σχετικά
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: αναζήτηση
+  cancel: Ακύρωση
+  no_results: Oops! Κανένα αποτέλεσμα δεν βρέθηκε.
+
+panel:
+  lastmod: Σχετικά ενημερωμένα
+  trending_tags: Ετικέτες τάσης
+  toc: Περιεχόμενα
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Η δημοσίευση αυτή βρίσκεται υπο την άδεια :LICENSE_NAME Greekforce1821.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Ορισμένα δικαιώματα reserved.
+  verbose: >-
+    Εκτός αλλού ή οπουδήποτε αλλού, τα blog posts σε αυτήν την σελίδα βρίσκονται υπο την άδεια
+    Creative Commons Attribution 4.0 International (CC BY 4.0) του δημιουργού.
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: Συγνώμη, έχουμε τοποθετήσει λάθος αυτήν την διεύθυνση URL ή υποδεικνύει κάτι που δεν υπάρχει.
+
+notification:
+  update_found: Υπάρχει διαθέσιμη μια νέα έκδοση του περιεχομένου.
+  update: Ενημέρωση
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Από
+  posted: Δημοσιεύθηκε
+  updated: Ενημερώθηκε
+  words: λέξεις
+  pageview_measure: προβολές
+  read_time:
+    unit: Λεπτά
+    prompt: διαβάσματος
+  relate_posts: Περισσότερα
+  share: Κοινοποιήστε
+  button:
+    next: Νεότερα
+    previous: Παλαιότερα
+    copy_code:
+      succeed: Αντιγράφθηκε!
+    share_link:
+      title: Αντιγραφή συνδέσμου
+      succeed: Η διεύθυνση αντιγράφθηκε με επιτυχία!
+
+# Date time format.
+# See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
+df:
+  post:
+    strftime: "%b %e, %Y"
+    dayjs: "ll"
+  archives:
+    strftime: "%b"
+    dayjs: "MMM"
+
+# categories page
+categories:
+  category_measure:
+    singular: Κατηγορία
+    plural: Κατηγορίες
+  post_measure:
+    singular: Δημοσίευση
+    plural: Δημοσιεύσεις

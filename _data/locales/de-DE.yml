@@ -1,0 +1,81 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Eintrag
+  category: Kategorie
+  tag: Tag
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Startseite
+  categories: Kategorien
+  tags: Tags
+  archives: Archiv
+  about: Über
+  root: Arctic.Technology
+
+# the text displayed in the search bar & search results
+search:
+  hint: Suche
+  cancel: Abbrechen
+  no_results: Ups! Keine Einträge gefunden.
+
+panel:
+  lastmod: Kürzlich aktualisiert
+  trending_tags: Beliebte Tags
+  toc: Inhalt
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: Dieser Eintrag ist vom Autor unter :LICENSE_NAME lizensiert.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Einige Rechte vorbehalten.
+  verbose: >-
+    Alle Einträge auf dieser Seite stehen, soweit nicht anders angegeben, unter der Lizenz Creative Commons Attribution 4.0 (CC BY 4.0).
+
+meta: See an issue?  <a href="https://github.com/ArcticTech/arctictech.github.io/issues">Report it here 📝.</a>
+
+not_found:
+  statment: Entschuldigung, dieser Link verweist auf keine vorhandene Ressource.
+
+notification:
+  update_found: Eine neue Version ist verfügbar.
+  update: Neue Version
+
+# ----- Posts related labels -----
+
+post:
+  written_by: Von
+  posted: Veröffentlicht
+  updated: Aktualisiert
+  words: Wörter
+  pageview_measure: Aufrufe
+  read_time:
+    unit: Minuten
+    prompt: lesen
+  relate_posts: Weiterlesen
+  share: Teilen
+  button:
+    next: Nächster Eintrag
+    previous: Eintrag vorher
+    copy_code:
+      succeed: Kopiert!
+    share_link:
+      title: Link kopieren
+      succeed: Link erfolgreich kopiert!
+
+# categories page
+categories:
+  category_measure:
+    singular: Kategorie
+    plural: Kategorien
+  post_measure:
+    singular: Eintrag
+    plural: Einträge
