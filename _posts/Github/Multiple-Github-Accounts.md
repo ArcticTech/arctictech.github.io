@@ -1,11 +1,11 @@
 ---
-title: Github Managing Multiple SSH Keys
+title: Multiple Github Accounts with SSH
 date: 2023-07-18 01:00:00 -700
 categories: [Github]
-tags: [github,ssh]
+tags: [git,github,ssh]
 ---
 
-## Managing Multiple SSH Keys for Different Github accounts
+## Managing Multiple Github Accounts with SSH Keys
 This guide will go over how to manage multiple SSH keys when you have multiple Github accounts.
 
 ### Setup SSH Key
