@@ -2,7 +2,7 @@
 title: Linux Cheat Sheet
 date: 2023-07-18 06:00:00 -700
 categories: [OS,Linux]
-tags: [linux,command-line,cheat-sheat]
+tags: [linux,command-line,cheat-sheet]
 ---
 
 ## Linux Basic Command Line Cheat Sheet
