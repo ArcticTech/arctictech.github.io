@@ -1,6 +1,6 @@
 ---
 title: Python Starter Package
-date: 2023-07-18 01:03:00 -700
+date: 2023-07-19 01:03:00 -700
 categories: [Python]
 tags: [python,pip,pypi,starter-guides]
 ---

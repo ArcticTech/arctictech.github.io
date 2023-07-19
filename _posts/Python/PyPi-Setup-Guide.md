@@ -1,6 +1,6 @@
 ---
 title: PyPi Setup Guide
-date: 2023-07-18 01:04:00 -700
+date: 2023-07-19 01:04:00 -700
 categories: [Python]
 tags: [python,pip,pypi]
 ---
