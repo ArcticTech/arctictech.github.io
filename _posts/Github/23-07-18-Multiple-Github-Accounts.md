@@ -38,7 +38,6 @@ Host github.com-work
 	HostName github.com
 	IdentityFile ~/.ssh/id_ed25519_work
 	IdentitiesOnly yes
-
 Host github.com-personal
 	HostName github.com
 	IdentityFile ~/.ssh/id_ed25519_personal
