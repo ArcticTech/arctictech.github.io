@@ -1,11 +1,11 @@
 ---
-title: First Post
+title: Importance of Open Source
 date: 2023-07-17 12:00:00 -700
 categories: [Articles]
-tags: [about]
+tags: [open-source]
 ---
 
-## First Post
+## Importance of Open Source
 At Arctic Technology we strongly believe in the power of open source and the importance of contributing to the open source community.
 
 Open source is the most impactful social phenomenon that has allowed the rapid development of innovative and accessible solutions that benefit everyone. It promotes collaboration and transparency, enabling a diverse group of individuals to contribute their expertise, leading to the democratizing of technology and the advancement of knowledge for the common good.
