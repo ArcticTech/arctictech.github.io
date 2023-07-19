@@ -2,7 +2,7 @@
 title: Github Starter Guide
 date: 2023-07-18 00:00:00 -700
 categories: [Github]
-tags: [git,github,ssh]
+tags: [git,github,ssh,starter-guides]
 ---
 
 ## Github Starter Guide

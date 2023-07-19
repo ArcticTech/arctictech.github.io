@@ -2,7 +2,7 @@
 title: Git Cheat Sheet
 date: 2023-07-18 05:00:00 -700
 categories: [Github]
-tags: [git,github]
+tags: [git,github,cheat-sheat]
 ---
 
 ## Git Cheat Sheet
