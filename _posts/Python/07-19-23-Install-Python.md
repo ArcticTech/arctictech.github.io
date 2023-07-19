@@ -2,7 +2,7 @@
 title: Install Python on Linux
 date: 2023-07-19 01:00:00 -700
 categories: [Python]
-tags: [python,linux]
+tags: [python,pip,linux]
 ---
 
 ## Install Python and Pip on Linux
