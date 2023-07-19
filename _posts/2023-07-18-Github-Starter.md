@@ -1,15 +1,15 @@
 ---
 title: Github Starter Guide
 date: 2023-07-18 00:00:00 -700
-categories: [github,guides]
+categories: [Github]
 tags: [github,ssh]
 ---
 
 ## Github Starter Guide
-This guide will go over how to setup Github locally so you can push/pull with your SSH key.
+This guide will go over how to set up Github locally so you can push/pull with your SSH key.
 
 ### Objective
-Once setup you should be able to directly add/commit and push changes to your repo using the following code.
+Once set up, you should be able to directly add/commit and push changes to your repo using the following code.
 ```
 git add .
 git commit -m "my-second-commit"
@@ -73,12 +73,12 @@ Hi ArcticTechnology! You've successfully authenticated, but GitHub does not prov
 
 ### Setup Globals
 
-This is part is optional, but it allows you to default your username and email:
+This part is optional, but it allows you to default your username and email:
 ```
 git config --global user.name "ArcticTechnology"
 git config --global user.email 13512073+ArcticTechnology@users.noreply.github.com
 ```
-Note: If you are using email privacy restrictions (which is highly recommended) you need to use this private email which github provides: ```{ID}+{username}@users.noreply.github.com```. See this post for more details:
+Note: If you are using email privacy restrictions (which is highly recommended) you need to use this private email which Github provides: ```{ID}+{username}@users.noreply.github.com```. See this post for more details:
 https://stackoverflow.com/questions/43378060/meaning-of-the-github-message-push-declined-due-to-email-privacy-restrictions
 
 ### Pull Your Existing Github Repo Locally
@@ -106,7 +106,7 @@ git push -u origin main
 Once you successfully set upstream main. You should be all ready to make your commits.
 
 ### Push Up a Brand New Repo
-The following are instructions to push up a brand new repo.
+The following are instructions to push up a new repo.
 1. Create a new repository locally: 
 ```
 git init
@@ -130,7 +130,7 @@ git push --set-upstream origin main
 ```
 Once you successfully set upstream main. You should be all ready to make your commits.
 
-### Changing Name of the Repo
+### Changing the Name of the Repo
 When you change the name of your repo, be sure to update the remote origin with the following:
 1. View existing remote origin.
 ```
@@ -147,7 +147,7 @@ git remote set-url origin git@github.com-personal:ArcticTechnology/sandbox_updat
 ```
 
 ### Conclusion
-Now your Github repo is setup. You can use the following to commit new changes:
+Now your Github repo is set up. You can use the following to commit new changes:
 ```
 git add .
 git commit -m "my commit message"
