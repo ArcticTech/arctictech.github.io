@@ -13,4 +13,5 @@ Open source is the most impactful social phenomenon that has allowed the rapid d
 We strive to do our part in contributing to the open source community. This repository of projects, guides, articles, and resources is intended to be used by everyone. Our goal is to make our tools and software accessible to all, whether it's engineers, coders, educators, and/or students alike.
 
 Yours,
+
 Arctic Technology Team
