@@ -32,18 +32,18 @@ eval "$(ssh-agent -s)"
 touch ~/.ssh/config
 nano ~/.ssh/config
 ```
-Then copy the following to the ~/.ssh/config file. In Host add a -suffix after github.com to distinguish the two keys
+* Then copy the following to the ```~/.ssh/config``` file. In Host add a -suffix after github.com to distinguish the two keys, for example:
 ```
 Host github.com-work
-    HostName github.com
-    IdentityFile ~/.ssh/id_ed25519_work
-    IdentitiesOnly yes
+	HostName github.com
+	IdentityFile ~/.ssh/id_ed25519_work
+	IdentitiesOnly yes
 
 Host github.com-personal
-    HostName github.com
-    IdentityFile ~/.ssh/id_ed25519_personal
-    IdentitiesOnly yes
-``` 
+	HostName github.com
+	IdentityFile ~/.ssh/id_ed25519_personal
+	IdentitiesOnly yes
+```
 5. Run ssh-add.
 For Mac include --apple-use-keychain:
 ```

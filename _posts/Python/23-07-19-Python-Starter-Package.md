@@ -8,7 +8,7 @@ tags: [python,pip,pypi,starter-guides]
 ## PythonStarterPackage Tutorial
 The purpose of this project is to show you how to create a standard python package from scratch. This project is inspired by this excellent getmyip package by @iamtennislover: [https://github.com/iamtennislover/getmyip] and this great guide on deploying python packages by @sigma-coding: [https://github.com/areed1192/sigma-coding].
 
-## Background
+### Background
 In order to create a Python package that can be used with ```pip```, it is strongly recommended that you use python's ```setuptools``` package to set up your package and then push it to PyPi.
 
 This guide will go over how to create a basic package that you can deploy with ```setuptools```.
