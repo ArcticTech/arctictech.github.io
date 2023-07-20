@@ -1,7 +1,7 @@
 ---
 title: IAM Basics Tutorial
 date: 2023-07-20 03:00:00 -700
-categories: [Aws-iam]
+categories: [Aws-iam,Guides]
 tags: [aws,iam,tutorial]
 ---
 ## IAM Basics Tutorial
