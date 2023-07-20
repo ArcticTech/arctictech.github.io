@@ -23,7 +23,7 @@ https://git-scm.com/
 ```
 
 ### Setup SSH Key
-In order this up locally, you will need the local SSH key associated with your account. If you haven't set one up yet then do the following. See this link for a more detailed guide: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+In order this up locally, you will need the local SSH key associated with your account. If you haven't set one up yet then do the following. See this guide on [using ssh with Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for details.
 
 1. Run ssh-keygen, to create your key in ```~/.ssh/id_ed25519```.
 ```
@@ -78,8 +78,7 @@ This part is optional, but it allows you to default your username and email:
 git config --global user.name "ArcticTechnology"
 git config --global user.email 13512073+ArcticTechnology@users.noreply.github.com
 ```
-Note: If you are using email privacy restrictions (which is highly recommended) you need to use this private email which Github provides: ```{ID}+{username}@users.noreply.github.com```. See this post for more details:
-https://stackoverflow.com/questions/43378060/meaning-of-the-github-message-push-declined-due-to-email-privacy-restrictions
+Note: If you are using email privacy restrictions (which is highly recommended) you need to use this private email which Github provides: ```{ID}+{username}@users.noreply.github.com```. See this post on [email privacy](https://stackoverflow.com/questions/43378060/meaning-of-the-github-message-push-declined-due-to-email-privacy-restrictions) for details.
 
 ### Pull Your Existing Github Repo Locally
 The following are instructions to pull an existing Github Repo locally.
