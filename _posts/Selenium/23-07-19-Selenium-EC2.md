@@ -1,8 +1,8 @@
 ---
 title: Selenium EC2 Setup
 date: 2023-07-19 02:01:00 -700
-categories: [Python,Selenium]
-tags: [python,selenium]
+categories: [Selenium]
+tags: [selenium,python]
 ---
 
 ## Selenium EC2 Setup Guide

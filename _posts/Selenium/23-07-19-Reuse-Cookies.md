@@ -1,8 +1,8 @@
 ---
 title: Reuse Cookies in Selenium
 date: 2023-07-19 02:02:00 -700
-categories: [Python,Selenium]
-tags: [python,selenium]
+categories: [Selenium]
+tags: [selenium,python]
 ---
 
 ## Reuse Cookies in Selenium

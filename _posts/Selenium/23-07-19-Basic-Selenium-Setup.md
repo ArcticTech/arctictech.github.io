@@ -1,8 +1,8 @@
 ---
 title: Basic Selenium Setup
 date: 2023-07-19 02:00:00 -700
-categories: [Python,Selenium]
-tags: [python,selenium]
+categories: [Selenium]
+tags: [selenium,python]
 ---
 
 ## Basic Selenium Setup Guide
