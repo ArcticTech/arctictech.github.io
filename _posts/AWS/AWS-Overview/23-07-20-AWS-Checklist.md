@@ -1,7 +1,7 @@
 ---
 title: AWS Account Checklist
 date: 2023-07-20 00:00:00 -700
-categories: [Aws,Aws-Overview]
+categories: [Aws-overview]
 tags: [aws,cheat-sheet]
 ---
 

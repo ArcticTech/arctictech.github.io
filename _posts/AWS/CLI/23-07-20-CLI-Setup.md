@@ -1,7 +1,7 @@
 ---
 title: AWS CLI Setup
 date: 2023-07-20 02:01:00 -700
-categories: [Aws,CLI]
+categories: [Aws-cli]
 tags: [aws,aws-cli]
 ---
 

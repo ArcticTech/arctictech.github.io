@@ -1,7 +1,7 @@
 ---
 title: IAM User Policies
 date: 2023-07-20 03:03:00 -700
-categories: [Aws,IAM,Useful-Policies]
+categories: [Aws-iam]
 tags: [aws,iam]
 ---
 

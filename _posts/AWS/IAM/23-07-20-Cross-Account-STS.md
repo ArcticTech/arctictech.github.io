@@ -1,7 +1,7 @@
 ---
 title: Cross Account Write Using STS
 date: 2023-07-20 03:01:00 -700
-categories: [Aws,IAM]
+categories: [Aws-iam]
 tags: [aws,iam,tutorial]
 ---
 
