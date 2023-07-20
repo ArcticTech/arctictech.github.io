@@ -1,12 +1,12 @@
 ---
-title: Github Starter Guide
+title: Github Basics Tutorial
 date: 2023-07-18 00:00:00 -700
 categories: [Github]
-tags: [git,github,ssh,starter-guides]
+tags: [git,github,ssh,tutorial]
 ---
 
-## Github Starter Guide
-This guide will go over how to set up Github locally so you can push/pull with your SSH key.
+## Github Basics Tutorial
+This is a basics tutorial that will go over how to set up Github locally so you can push/pull with your SSH key.
 
 ### Objective
 Once set up, you should be able to directly add/commit and push changes to your repo using the following code.

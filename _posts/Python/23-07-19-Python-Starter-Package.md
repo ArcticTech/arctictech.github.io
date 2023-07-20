@@ -1,8 +1,8 @@
 ---
-title: Python Starter Package
+title: Python Starter Package Tutorial
 date: 2023-07-19 01:03:00 -700
 categories: [Python]
-tags: [python,pip,pypi,starter-guides]
+tags: [python,pip,pypi,tutorial]
 ---
 
 ## PythonStarterPackage Tutorial
