@@ -30,5 +30,5 @@ The best way to understand AWS is to understand some of its uses. Here are four 
 ### Conclusion
 AWS is a very powerful tool with a wide array of services to meet diverse needs. From static web hosting to complex data processing pipelines and serverless workflows, AWS offers scalable, reliable, and cost-effective solutions for every stage of application development and deployment. It's worth learning and trying it out.
 
-* Note: these pictures were from a youtube video that did a great job summarizing these AWS use cases, however, I can no longer find the video to give it a proper citation. If someone can find that video, please reach out, I would love to give it credit.
+* Note: the pictures in this post were from a youtube video that did a great job summarizing these AWS use cases, however, I can no longer find the video to give it a proper citation. If someone can find that video, please reach out, I would love to give it credit.
 
