@@ -1,7 +1,7 @@
 ---
 title: SNS Policies
 date: 2023-07-20 03:07:00 -700
-categories: [Aws-iam]
+categories: [Aws-iam,Useful-Policies]
 tags: [aws,iam]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: AWS Overview
 date: 2023-07-20 00:01:00 -700
-categories: [Aws-overview]
+categories: [Aws]
 tags: [aws]
 ---
 

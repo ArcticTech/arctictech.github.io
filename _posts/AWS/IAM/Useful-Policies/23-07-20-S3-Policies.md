@@ -1,7 +1,7 @@
 ---
 title: S3 Policies
 date: 2023-07-20 03:04:00 -700
-categories: [Aws-iam]
+categories: [Aws-iam,Useful-Policies]
 tags: [aws,iam]
 ---
 
