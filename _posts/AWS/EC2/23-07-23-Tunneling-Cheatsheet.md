@@ -2,7 +2,7 @@
 title: Tunneling Cheatsheet
 date: 2023-07-23 00:01:00 -700
 categories: [Aws-ec2]
-tags: [aws,ec2]
+tags: [aws,ec2,cheatsheet]
 ---
 
 ### Tunneling Cheatsheet

@@ -1,13 +1,15 @@
 ---
-title: Linux Cheat Sheet
+title: Linux Cheatsheet
 date: 2023-07-18 06:00:00 -700
 categories: [OS,Linux]
-tags: [linux,command-line,cheat-sheet]
+tags: [linux,command-line,cheatsheet]
 ---
 
-## Linux Basic Command Line Cheat Sheet
+## Linux Basic Command Line Cheatsheet
+This is a cheatsheet of some basic linux commands.
 
-1. Basic commands: navigating, go back, list directories, print working directory.
+### Basic commands
+1. Navigating, go back, list directories, print working directory.
 ```
 cd /Users/Hello/Documents/
 cd ..
@@ -62,4 +64,22 @@ Type :w followed by enter to save.
 Type :q followed by enter to quit.
 Type :q! followed by enter to force quit.
 Type gg dG to delete all.
+```
+
+### Ubuntu
+1. Updating Ubuntu.
+```
+sudo apt update
+sudo apt full-upgrade
+sudo apt-get dist-upgrade
+```
+2. Auto-installing critical updates.
+```
+sudo apt-get install unattended-upgrades -y
+sudo dpkg-reconfigure -plow unattended-upgrades
+```
+3. Clean system:
+```
+su -
+apt autoremove -y && apt autoclean && apt clean
 ```

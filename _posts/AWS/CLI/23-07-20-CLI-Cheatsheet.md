@@ -2,10 +2,10 @@
 title: AWS CLI Commands Cheat Sheet
 date: 2023-07-20 02:02:00 -700
 categories: [Aws-cli]
-tags: [aws,aws-cli,cheat-sheet]
+tags: [aws,aws-cli,cheatsheet]
 ---
 
-## Aws CLI Cheat Sheet
+## Aws CLI Cheatsheet
 These are some of the most useful commands in the AWS CLI. See this documentation for details:
 ```
 https://docs.aws.amazon.com/cli/latest/reference/ec2/index.html

@@ -1,12 +1,12 @@
 ---
-title: Git Cheat Sheet
+title: Git Cheatsheet
 date: 2023-07-18 05:00:00 -700
 categories: [Github]
-tags: [git,github,cheat-sheet]
+tags: [git,github,cheatsheet]
 ---
 
-## Git Cheat Sheet
-This is a cheat sheet of the most commonly used Git commands.
+## Git Cheatsheet
+This is a cheatsheet of the most commonly used Git commands.
 
 1. Configuring Git:
 ```
