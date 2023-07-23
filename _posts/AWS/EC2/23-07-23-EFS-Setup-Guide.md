@@ -74,7 +74,7 @@ sudo mount -t efs -o tls fs-ac79922d:/ /var/www/html
 ### Result
 Now that we have mounted our EFS to our two EC2 instances, we should be able to make edits to one ```/var/www/html``` directory and those changes should be replicated in the other. To test this do the following:
 
-1. In the ```/var/www/html``` of your first EC2 Instance, XX.XXX.XX.XXX, create an ```index.html``` with this "Hello World" HTML:
+1. In the ```/var/www/html``` of your first EC2 Instance, ```XX.XXX.XX.XXX```, create an ```index.html``` with this "Hello World" HTML (replace ```&lt;``` with ```<```).
 ```html
 &lt;html>
 &lt;body>

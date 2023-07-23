@@ -42,7 +42,7 @@ chkconfig httpd on
 ```
 cd /var/www/html
 ```
-2. Create an ```index.html``` with this "Hello World" HTML:
+2. Create an ```index.html``` with this "Hello World" HTML (replace ```&lt;``` with ```<```).
 ```html
 &lt;html>
 &lt;body>
