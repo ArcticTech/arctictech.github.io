@@ -29,17 +29,22 @@ To create an IAM user do the following:
 ### Apply Password policy
 Go to Account Settings and apply any rules you wish for the passwords your users can set.
 
-### Create Roles
-Roles are a very important feature that allows one Aws service to talk to another AWS service. This becomes very important in accessing Aws without having to save credentials within virtual machines.
+### Configure IAM Role
+Roles are a very important feature that securely allows one Aws service to talk to another AWS service without the need for managing credentials or having to worry about storing credentials within your virtual machines. We will create a role that allows EC2 full access to S3 here:
 
-1. Click Roles. Add a role name, for example: "S3-Admin-Access".
-2. Select a Service Role (the service that you want to own the permission you will assign next.), for example: "Amazon EC2".
-3. Attach the "AmazonS3FullAccess". This will give EC2 permission to interact with S3.
-4. To use this policy simply attach it to an EC2 instance and SSH into that instance and run the following command. If properly configured, you should be able to see the contents of your S3 bucket from your EC2 instance.
+1. If you are in the IAM console, click Roles > Create Role. If you are in the EC2 console launching an instance, under Advanced Details, click Create New IAM Profile then Create Role.
+2. For Trusted Entity Type select AWS service.
+3. For Use Case, select EC2, and click Next.
+4. Attach a policy to your role. For our purposes, select the ```AmazonS3FullAccess``` policy and click next.
+5. Give the role a name, ie: ```EC2_Admin=S3```.
+6. Give the role a description, ie: ```Allows EC2 admin access to S3```.
+7. Leave everything else as default and click create role.
+8. To use this role, simply go to your EC2 instance and add this role to your instance. Under your EC2 instance, under IAM instance profile, select this role.
+9. If properly configured, once you SSH into your instance, you should be able to see the contents of your S3 bucket from your EC2 with the following command:
 ```
 aws s3 ls
 ```
-Note: See the EC2 Setup Guide for details on how to configure an EC2 instance.
+* Note: See the EC2 Basics Tutorial for details on how to configure an EC2 instance.
 
 ### Result
 Congrats, now you should have a User, Group, and Roles set up in IAM.
