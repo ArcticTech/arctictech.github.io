@@ -38,17 +38,17 @@ chkconfig httpd on
 ```
 
 ### Create a website
-1. Go to "/var/www/html", anything in this directory is publicly accessible.
+1. Go to ```/var/www/html```, anything in this directory is publicly accessible.
 ```
 cd /var/www/html
 ```
 2. Create an ```index.html``` with this "Hello World" HTML:
-```
+```html
 &lt;html>
 &lt;body>
-&lt;h1>Hello World</h1&gt;
-</body&gt;
-</html&gt;
+&lt;h1>Hello World&lt;/h1>;
+&lt;/body>;
+&lt;/html>;
 ```
 
 ### Result

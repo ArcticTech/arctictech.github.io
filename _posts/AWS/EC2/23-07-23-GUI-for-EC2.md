@@ -6,7 +6,10 @@ tags: [aws,ec2]
 ---
 
 ## GUI for EC2 Guide
-This guide will go over how to use a GUI with an Amazon Linux EC2 instance. See this guide for details: https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/.
+This guide will go over how to use a GUI with an Amazon Linux EC2 instance. See this guide for details:
+```
+https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/
+```
 
 ### Install TigerVNC on Your Local Machine
 Visit the [TigerVNC website](https://tigervnc.org/) for detailed installation instructions. For Mac OS go look for the following:
@@ -48,12 +51,12 @@ Start TigerVNC on display 1 so that the service starts automatically at boot tim
 sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@.service
 ```
 
-2. Replace the occurances of user with ec2-user.
+2. Replace any occurrences of ```user``` with ```ec2-user``` using the following command:
 ```
 sudo sed -i 's/<USER>/ec2-user/' /etc/systemd/system/vncserver@.service
 ```
 
-3. Reload the systemctl.
+3. Reload the ```systemctl```.
 ```
 sudo systemctl daemon-reload
 ```
@@ -64,7 +67,7 @@ sudo systemctl enable vncserver@:1
 sudo systemctl start vncserver@:1
 ```
 
-5. Run vncserver. If it prompts you, setup a password for VNC and for view-only password press n for no.
+5. Run ```vncserver```. If it prompts you, setup a password for VNC and for view-only password press n for no.
 ```
 vncserver
 ```
@@ -83,11 +86,10 @@ localhost:1
 
 ### Additional Tools
 
-What's the point of having a UI if you don't have a browser? To install firefox use the following command:
+What's the point of having a UI if you don't have a browser? To install Firefox use the following command:
 ```
 sudo amazon-linux-extras install firefox
 ```
 
 ### Result
 Now you should be able to access the VNC server using an encrypted SSH tunnel and be able to use your GUI with your EC2 instance.
-~

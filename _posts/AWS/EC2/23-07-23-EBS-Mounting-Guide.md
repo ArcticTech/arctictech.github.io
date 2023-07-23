@@ -14,7 +14,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
 ### Format and mount an attached volume
 1. Connect to your instance using SSH. For more information, see Connect to your Linux instance.
 
-2. The device could be attached to the instance with a different device name than you specified in the block device mapping. For more information, see Device naming on Linux instances. Use the lsblk command to view your available disk devices and their mount points.
+2. The device could be attached to the instance with a different device name than you specified in the block device mapping. For more information, see Device naming on Linux instances. Use the ```lsblk``` command to view your available disk devices and their mount points.
 ```
 lsblk
 df
@@ -25,11 +25,11 @@ df
 sudo file -s /dev/xvdf
 ```
 
-4. Only if volume is empty, use the mkfs -t command to create a file system on the volume. Important: doing this will delete any existing data on the volume.
+4. Only if the volume is empty, use the ```mkfs -t command``` to create a file system on the volume. Important: doing this will delete any existing data on the volume.
 ```
 sudo mkfs -t xfs /dev/xvdf
 ```
-If you get an error that mkfs.xfs is not found, use the following command to install the XFS tools and then repeat the previous command:
+If you get an error that ```mkfs.xfs``` is not found, use the following command to install the XFS tools and then repeat the previous command:
 ```
 sudo yum install xfsprogs
 ```
@@ -57,7 +57,7 @@ Note: if you reboot your instance you will need to remount unless you use auto-r
 
 ### Auto-Remount After Reboot
 
-1. Use the blkid command to find the UUID of the device.
+1. Use the ```blkid``` command to find the UUID of the device.
 ```
 sudo blkid
 /dev/xvdf: UUID="549af139-1164-47e4-bfb6-4e15e70fb5ad" TYPE="xfs"
@@ -71,7 +71,7 @@ sudo lsblk -o +UUID
 ```
 sudo nano /etc/fstab
 ```
-Add the following line (note use your uuid and type):
+Add the following line (note: your uuid and type):
 ```
 UUID=549af139-1164-47e4-bfb6-4e15e70fb5ad  /mnt/data0  xfs  defaults,nofail  0  2
 ```

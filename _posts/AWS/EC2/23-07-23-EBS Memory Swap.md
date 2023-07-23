@@ -10,7 +10,7 @@ Swap space in Linux can be used when a system requires more memory than it has b
 
 In order to do this guide, you will need to create an EBS Volume and attach the EBS Volume to your EC2 instance.
 
-1. Run lsblk to check new volume, it will appear as /dev/xvdc on instance.
+1. Run ```lsblk ``` to check new volume, it will appear as ```/dev/xvdc``` on instance.
 ```
 $ lsblk
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -34,7 +34,7 @@ sudo mkswap /dev/xvdc
 sudo swapon /dev/xvdc
 ```
 
-5. Edit /etc/fstab to make the settings persist.
+5. Edit ```/etc/fstab``` to make the settings persist.
 ```
 sudo nano /etc/fstab
 ```

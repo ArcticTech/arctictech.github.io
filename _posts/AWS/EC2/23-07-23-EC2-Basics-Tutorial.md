@@ -96,7 +96,7 @@ echo 'shutdown -h 120' >> /etc/rc.local
 ```
 
 ### Launching and Accessing
-Once you have your instance configured, click Launch to launch the instance. In your ec2 console you should see your instance firing up. Wait till the Instance State changes to Running, then you can SSH into your instance.
+Once you have your instance configured, click Launch to launch the instance. In your ec2 console, you should see your instance firing up. Wait till the Instance State changes to Running, then you can SSH into your instance.
 
 1. For linux and mac users, you will need to change the permissions on the  ```.pem``` key that you downloaded. For mac users, this may be a ```.cer``` file. To change the permissions run:
 ```
@@ -104,7 +104,7 @@ chmod 400 /user/home/mykeys/ec2key-us-east-1.pem
 ```
 * For windows users, you will need to convert key pair to PuTTY key. See PuTTY Guide for instructions on this.
 
-2. Now go to your EC2 console and find the public ip address of your EC2. For linux and mac users, SSH into your EC2 instance with the following command and replace "XX.XXX.XX.XXX" with the public ip address of your EC2.
+2. Now go to your EC2 console and find the public ip address of your EC2. For linux and mac users, SSH into your EC2 instance with the following command and replace ```XX.XXX.XX.XXX``` with the public ip address of your EC2.
 ```
 ssh ec2-user@XX.XXX.XX.XXX -i /user/home/mykeys/ec2key-us-east-1.pem
 ```

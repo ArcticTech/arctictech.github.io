@@ -45,7 +45,7 @@ ssh ec2-user@XX.XXX.XX.XXX -i /user/home/mykeys/ec2key-us-east-1.pem
 ```
 sudo su
 ```
-3. Check to make sure that apache is installed by making sure ```/var/www/html``` exists. This was a prerequisite.
+3. Check to make sure that Apache is installed by making sure ```/var/www/html``` exists. This was a prerequisite.
 ```
 cd /var/www/html
 ```
@@ -53,14 +53,14 @@ cd /var/www/html
 ```
 cd /var/www
 ```
-5. Repeat steps 1 through 4, for the other EC2 instance. In our case it's ec2-user@YY.YYY.YY.YYY
+5. Repeat steps 1 through 4, for the other EC2 instance. In our case it's ```ec2-user@YY.YYY.YY.YYY```
 
 ### Mounting EFS to EC2 Instances
 Now that we have checked our instances, we can mount our EFS to our two EC2 instances.
 
 1. On the EFS Dashboard, select the EFS that you provisioned and click on "Amazon EC2 mount instructions (from local VPC)"
 
-2. Scroll down to find the tls command, which will encrypt data in transit, this should look like the following:
+2. Scroll down to find the ```tls``` command, which will encrypt data in transit, this should look like the following:
 ```
 sudo mount -t efs -o tls fs-ac79922d:/ efs
 ```
@@ -75,14 +75,14 @@ sudo mount -t efs -o tls fs-ac79922d:/ /var/www/html
 Now that we have mounted our EFS to our two EC2 instances, we should be able to make edits to one ```/var/www/html``` directory and those changes should be replicated in the other. To test this do the following:
 
 1. In the ```/var/www/html``` of your first EC2 Instance, XX.XXX.XX.XXX, create an ```index.html``` with this "Hello World" HTML:
-```
+```html
 &lt;html>
 &lt;body>
-&lt;h1>Hello World</h1&gt;
-</body&gt;
-</html&gt;
+&lt;h1>Hello World&lt;/h1>;
+&lt;/body>;
+&lt;/html>;
 ```
-2. Then go to your second EC2 Instance ec2-user@YY.YYY.YY.YYY then navigate to /var/www/html then ls and yous should see the same ```index.html```.
+2. Then go to your second EC2 Instance ```ec2-user@YY.YYY.YY.YYY``` then navigate to ```/var/www/html``` then ls and yous should see the same ```index.html```.
 ```
 cd /var/www/html
 ls

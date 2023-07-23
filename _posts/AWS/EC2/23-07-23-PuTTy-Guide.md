@@ -10,14 +10,14 @@ This guide is for Windows users to use PuTTy to access your EC2 instance or Ligh
 
 ### Objective
 Once set up, you will be able to access EC2 or Lightsail via PuTTy:
-1. Select "saved session", ie: "ec2-user@XX.XXX.XX.XXX".
+1. Select "saved session", ie: ```ec2-user@XX.XXX.XX.XXX```.
 2. Load and Open.
 
 ### Prerequisites
 1. Launch your instance. See the "EC2 Basics Tutorial" or "Lightsail Guide" for details.
 2. After clicking launch, in the pop-up window, create a new key pair and download the file. This should be a .pem file. Note the download location.
 3. Go ahead and hit Launch Instance.
-4. Download PuTTy client from http://www.putty.org/. You will need both the PuTTy client and PuTTyGen.
+4. Download [PuTTy](http://www.putty.org/). You will need both the PuTTy client and PuTTyGen.
 5. Create a desktop shortcut for the PuTTY launcher and the PuTTYgen launcher.
 
 ### Creating PuTTy Key
@@ -29,7 +29,7 @@ Before we can connect to our instance with PuTTy, we need to create a PuTTy key 
 Now we need to set up a connection between EC2 or Lightsail and PuTTy.
 
 1. Open your EC2 or Lightsail instance and find the IPv4 Public IP address.
-2. In PuTTy, under the Sessions category in the "Host Name (or IP address)" create a session name. The session name should be the image username and your IPv4 Public IP address. For example: If you are using an Amazon AMI the user name is ec2-user@. For ubuntu it's ubuntu@.
+2. In PuTTy, under the Sessions category in the "Host Name (or IP address)" create a session name. The session name should be the image username and your IPv4 Public IP address. For example: If you are using an Amazon AMI the user name is ```ec2-user@```. For ubuntu it's ```ubuntu@.```
 ```
 ec2-user@XX.XXX.XX.XXX
 ```
