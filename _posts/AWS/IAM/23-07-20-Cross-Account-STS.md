@@ -31,7 +31,7 @@ We first need to create a role and policy inside our Source Account that assumes
 Name = sts-access-to-<DESTINATION ACCOUNT NUMBER>
 ```
 2. Paste in the following permissions.
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -51,7 +51,7 @@ Role Name = cross-account-write-to-<DESTINATION ACCOUNT NUMBER>
 ```
 
 4. In the role, make sure "Edit trust relationship" policy looks like the following.
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -78,7 +78,7 @@ Now we will create the assumed role our Destination Account and attach the prope
 Name = assume-role-via-<SOURCE ACCOUNT NUMBER>
 ```
 2. In the role, edit the trust relationship and change it to the following. This allows the Lambda function (which we will create later) in our source account to access the permissions attached to this role.
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -122,7 +122,7 @@ Use an existing role = "cross-account-write-to-<DESTINATION ACCOUNT NUMBER>"
 2. In the Lambda function, under Basic settings, change the Timeout to 2 mins to give the function more time to execute.
 
 3. Paste in the following code into our function and click "Save".
-```
+```python
 import json
 import boto3
 #

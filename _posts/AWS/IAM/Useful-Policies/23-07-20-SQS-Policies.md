@@ -7,7 +7,7 @@ tags: [aws,iam]
 
 ## SQS Policies
 * SQS Read Only Policy:
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -32,7 +32,7 @@ tags: [aws,iam]
 }
 ```
 * SQS Write Only Policy:
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

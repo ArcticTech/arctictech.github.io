@@ -7,7 +7,7 @@ tags: [aws,iam]
 
 ## Secrets Manager Policies
 * Secrets Manager Read Only Policy:
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

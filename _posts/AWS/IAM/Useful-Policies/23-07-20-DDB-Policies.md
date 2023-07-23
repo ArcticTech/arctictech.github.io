@@ -7,7 +7,7 @@ tags: [aws,iam]
 
 ## DDB Policies
 * DDB Read Write Policy:
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

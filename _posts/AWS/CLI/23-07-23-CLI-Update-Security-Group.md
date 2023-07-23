@@ -131,15 +131,7 @@ done
 ```
 
 ### Use the Script
-
-1. To use this script simple call it with:
+To use this script simply call it:
 ```
 ./allowMyIP.sh
 ```
-
-2. Type in the security group you want to modify by inputting the description of the security group.
-```
-Enter Your Security Group rule description: My-Access
-```
-
-

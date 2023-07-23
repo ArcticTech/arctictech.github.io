@@ -7,7 +7,7 @@ tags: [aws,iam]
 
 ## S3 Policies
 * S3 Bucket Owner Policy:
-```
+```json
 {
   "Id": "Policy1600272289549",
   "Version": "2012-10-17",
@@ -34,7 +34,7 @@ tags: [aws,iam]
 }
 ```
 * S3 Read Write Policy:
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
