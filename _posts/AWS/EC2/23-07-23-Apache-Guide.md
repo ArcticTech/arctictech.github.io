@@ -42,10 +42,7 @@ chkconfig httpd on
 ```
 cd /var/www/html
 ```
-2. create an ```index.html``` with the following:
-```
-<html><h1>Hello World</h1></html>
-```
+2. create an ```index.html``` with the following: ```<html><h1>Hello World</h1></html>```
 
 ### Result
 Now test the result, from your browser by pasting in the IPv4 Public IP address and you should be able to view your ```index.html``` file from your browser.

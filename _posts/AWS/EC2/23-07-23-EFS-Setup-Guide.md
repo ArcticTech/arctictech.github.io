@@ -45,11 +45,11 @@ ssh ec2-user@XX.XXX.XX.XXX -i /user/home/mykeys/ec2key-us-east-1.pem
 ```
 sudo su
 ```
-3. Check to make sure that apache is installed by making sure /var/www/html exists. This was a prerequisite.
+3. Check to make sure that apache is installed by making sure ```/var/www/html``` exists. This was a prerequisite.
 ```
 cd /var/www/html
 ```
-4. Then go to /var/www
+4. Then go to ```/var/www```
 ```
 cd /var/www
 ```
@@ -64,7 +64,7 @@ Now that we have checked our instances, we can mount our EFS to our two EC2 inst
 ```
 sudo mount -t efs -o tls fs-ac79922d:/ efs
 ```
-3. Go to your first instance: ec2-user@XX.XXX.XX.XXX and paste in the above command but change "efs" to /var/www/html Note: Make sure you have installed the amazon-efs-utils. If it hangs for more than a minute then there may be an issue with your security group or network acl.
+3. Go to your first instance: ec2-user@XX.XXX.XX.XXX and paste in the above command but change "efs" to ```/var/www/html``` Note: Make sure you have installed the amazon-efs-utils. If it hangs for more than a minute then there may be an issue with your security group or network acl.
 ```
 sudo yum install -y amazon-efs-utils
 sudo mount -t efs -o tls fs-ac79922d:/ /var/www/html
@@ -72,14 +72,10 @@ sudo mount -t efs -o tls fs-ac79922d:/ /var/www/html
 4. Repeat step 3 for the second instance: ec2-user@YY.YYY.YY.YYY
 
 ### Result
-Now that we have mounted our EFS to our two EC2 instances, we should be able to make edits to one /var/www/html directory and those changes should be replicated in the other. To test this do the following:
+Now that we have mounted our EFS to our two EC2 instances, we should be able to make edits to one ```/var/www/html``` directory and those changes should be replicated in the other. To test this do the following:
 
-1. Create an index.html file in your first EC2 Instance ec2-user@XX.XXX.XX.XXX
-```
-cd /var/www/html
-echo "<html><body><h1>Hello World</h1></body></html>" > index.html
-```
-2. Then go to your second EC2 Instance ec2-user@YY.YYY.YY.YYY then navigate to /var/www/html then ls and yous should see the same index.html
+1. In the ```var/www/html``` of your first EC2 Instance, XX.XXX.XX.XXX, create an ```index.html``` with the following: ```<html><body><h1>Hello World</h1></body></html>```.
+2. Then go to your second EC2 Instance ec2-user@YY.YYY.YY.YYY then navigate to /var/www/html then ls and yous should see the same ```index.html```.
 ```
 cd /var/www/html
 ls
