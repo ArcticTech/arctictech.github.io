@@ -1,0 +1,20 @@
+Ways to Avoid Captchas
+https://privateproxy.me/blog/10-best-ways-of-how-to-avoid-captcha-and-recaptcha/
+
+Integrate PrivateProxy.me
+https://www.youtube.com/watch?v=qhXAANX6qhg
+
+Buy Residential PrivateProxy.me
+https://privateproxy.me/residential-proxies/
+
+How to Setup a Proxy Server on EC2
+https://medium.com/@grabteawithme/how-to-setup-a-proxy-server-on-ec2-655db0c873d8
+
+Be anonymous, create your own proxy server with AWS EC2
+https://dev.to/viralsangani/be-anonymous-create-your-own-proxy-server-with-aws-ec2-2k63
+
+How to set Google Chrome’s proxy settings in command line on Linux?
+https://www.systutorials.com/how-to-set-google-chromes-proxy-settings-in-command-line-on-linux/
+
+Configure Proxy for Chromium and Google Chrome From Command Line on Linux
+https://www.linuxbabe.com/desktop-linux/configure-proxy-chromium-google-chrome-command-line

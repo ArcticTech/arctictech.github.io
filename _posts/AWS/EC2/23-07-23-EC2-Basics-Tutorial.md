@@ -1,6 +1,6 @@
 ---
 title: EC2 Basics Tutorial
-date: 2023-07-20 00:00:00 -700
+date: 2023-07-23 00:00:00 -700
 categories: [Aws-ec2]
 tags: [aws,ec2,tutorial]
 ---
@@ -102,13 +102,13 @@ Once you have your instance configured, click Launch to launch the instance. In 
 ```
 chmod 400 /user/home/mykeys/ec2key-us-east-1.pem
 ```
-* For windows users, you will need to convert key pair to PuTTY key. See PuTTY guide for instructions on this.
+* For windows users, you will need to convert key pair to PuTTY key. See PuTTY Guide for instructions on this.
 
 2. Now go to your EC2 console and find the public ip address of your EC2. For linux and mac users, SSH into your EC2 instance with the following command and replace "XX.XXX.XX.XXX" with the public ip address of your EC2.
 ```
 ssh ec2-user@XX.XXX.XX.XXX -i /user/home/mykeys/ec2key-us-east-1.pem
 ```
-* For windows users, see PuTTY guide for instructions on how to SSH.
+* For windows users, see PuTTY Guide for instructions on how to SSH.
 3. If you added the role, ```EC2_Admin=S3```, earlier we can test to make sure our role is working. Simply run ```aws s3 ls``` and you should be able to see the contents of your S3 bucket from your EC2.
 
 ### Result
