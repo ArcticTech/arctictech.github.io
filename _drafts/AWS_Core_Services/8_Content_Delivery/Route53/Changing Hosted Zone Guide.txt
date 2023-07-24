@@ -1,0 +1,96 @@
+## Changing Hosted Zones
+See: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html#hosted-zones-migrating-create-hosted-zone
+
+1. Get Original Hosted Zone
+```
+aws route53 list-resource-record-sets --hosted-zone-id Z10257522DV7FIDRNLYF3 > /home/cloudshell-user/records-Z10257522DV7FIDRNLYF3.txt
+```
+
+2. Reformat Hosted Zone Json instructions, delete NS and SOA record, add Comment and Changes, ```{"Action": "CREATE", "ResourceRecordSet": {``` infront of every line.
+```
+{
+  "Comment": "string",
+  "Changes": [
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "investanswers.io.",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "54.69.59.249"
+          }
+        ]
+      }
+    },
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "_8bd9d316156e700ca9ad7d51e02882bc.investanswers.io.",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "_50f590b6482ea7080ada8069cc11ed2b.lggsghvbmf.acm-validations.aws."
+          }
+        ]
+      }
+    },
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "discourse.investanswers.io.",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "54.81.241.253"
+          }
+        ]
+      }
+    },
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "www.investanswers.io.",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "investanswers.io"
+          }
+        ]
+      }
+    },
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "_6ee548bc2aac4364ff1865d9aa2eba53.www.investanswers.io.",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "_7159e6f5cb79b24e43b1d733c6d30fa5.lggsghvbmf.acm-validations.aws."
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+3. In new account, create new hosted zone and make note of the hosted zone ID.
+```
+Z07894272M7DB3UC53Y96
+```
+
+4. In new account, add the Json instructions created earlier to a .txt file, use the change-resource-record-sets command:
+```
+aws route53 change-resource-record-sets --hosted-zone-id Z07894272M7DB3UC53Y96 --change-batch file:///home/cloudshell-user/change-records.txt
+```
+
+5. Check the new record set:
+```
+aws route53 list-resource-record-sets --hosted-zone-id Z02521621OKFQAE1M23A6 > /home/cloudshell-user/records-Z02521621OKFQAE1M23A6.txt
+```

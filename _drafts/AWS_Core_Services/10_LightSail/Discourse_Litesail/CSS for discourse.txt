@@ -1,0 +1,19 @@
+/* Hide Category Descriptions in Category Overview */
+.category-description {
+    display: none;
+}
+
+/* Hide Category Descriptions in Create Topics */
+.category-desc {
+    display: none;
+}
+
+/* Hide Share Button */
+.btn-default.topic-footer-button.share-and-invite.btn.btn-icon-text {
+    display: none;
+}
+
+/* Hide Number of Topics in Category */
+th.topics, td.topics {
+    display: none;
+}

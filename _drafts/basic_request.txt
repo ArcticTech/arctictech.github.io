@@ -1,0 +1,23 @@
+import json
+import logging
+import requests
+
+def lambda_handler(event, context):
+	""" Demonstrates a simple HTTP request from Lambda """
+
+	logger = logging.getLogger()
+	logger.setLevel(logging.DEBUG)
+
+	response = requests.get('https://jsonplaceholder.typicode.com/posts')
+	posts = json.loads(response.text) #load data into a dict of objects, posts
+	logger.debug('posts is a = {}'.format(type(posts)))
+
+	# Get the unique userId, there should only be 1-10
+	unique_ids = set()
+
+	for post in posts:
+		unique_ids.add(post['userId'])
+
+	logger.debug('unique_ids = {}'.format(unique_ids))
+
+	return {'statusCode': 200,'body': json.dumps(unique_ids)}

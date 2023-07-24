@@ -1,0 +1,21 @@
+https://levelup.gitconnected.com/handling-350k-requests-for-3-using-lambda-c258ace3da58
+https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html
+
+https://www.serverless.com/aws-http-apis/
+
+https://kennbrodhagen.net/2015/12/06/how-to-create-a-request-object-for-your-lambda-event-from-api-gateway/
+
+
+Lambda API
+https://levelup.gitconnected.com/handling-350k-requests-for-3-using-lambda-c258ace3da58
+
+https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html
+
+https://www.serverless.com/aws-http-apis
+
+https://kennbrodhagen.net/2015/12/06/how-to-create-a-request-object-for-your-lambda-event-from-api-gateway/
+
+https://aws.amazon.com/blogs/compute/upcoming-changes-to-the-python-sdk-in-aws-lambda/
+
+https://medium.com/@ss.shawnshi/make-api-calls-from-aws-lambda-to-access-backend-database-e23abcbfc45a
+

@@ -1,0 +1,15 @@
+Guides Needed:
+1. Lightsail Guide
+- Access to credentials: cat $HOME/bitnami_application_password
+- Static ip address
+- Connect that to URL
+- How to make http to https: sudo vim /opt/bitnami/apps/wordpress/htdocs/wp-config.php
+- How to get HTTPS in aws
+ -- https://www.youtube.com/watch?v=z6pBUt2iLcU
+ -- https://www.youtube.com/watch?v=Ge-dkZgqLKg
+
+2. Certificates manager guide
+- Route53 Guide on managing Hosted Zones
+- Hosting a website on one account with the hosted zone in another
+
+3. Create a wordpress blog lightsail guide: https://www.youtube.com/watch?v=49aOUHkvlgg

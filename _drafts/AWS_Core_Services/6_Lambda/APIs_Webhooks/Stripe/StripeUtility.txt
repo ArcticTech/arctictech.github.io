@@ -1,0 +1,25 @@
+import json
+import urllib3
+http = urllib3.PoolManager()
+
+class StripeUtility:
+
+	@classmethod
+	def get_customer(self, secret_key, customer_id, **kwargs):
+		#Note to get the customer subscriptions: expand='?expand[]=subscriptions.data'
+		try:
+			method = 'GET'; arguments = ''
+			for _ , value in kwargs.items(): arguments += value
+			url = 'https://api.stripe.com/v1/customers/' + customer_id + arguments
+			headers = urllib3.make_headers(basic_auth=secret_key)
+			request = http.request(method, url, headers=headers)
+			data = json.loads(request.data)
+			if 'error' not in data:
+				return {'status': 200, 'message': 'Successfully retrieved data from Stripe.',
+						'data': data}
+			else:
+				return {'status': 400, 'message': 'Error: Stripe returned an error, possibly customer_id does not exist.',
+						'data': data}
+		except:
+			return {'status': 400, 'message': 'Error: Failed to retrieved data from Stripe.',
+					'data': None}

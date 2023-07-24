@@ -1,0 +1,12 @@
+Get list of Users
+https://docs.discourse.org/#operation/adminListUsers
+
+Get user by ID
+https://docs.discourse.org/#operation/adminGetUser
+
+How to get notified if a new user joins discourse via api
+Email perhaps?
+
+How to add user to group
+https://github.com/pfaffman/discourse-user-creator/blob/6a173a3b169c7a1336ea7d844bd7033116e6e2e1/create-user#L76
+

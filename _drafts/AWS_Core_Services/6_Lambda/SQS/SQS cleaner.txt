@@ -1,0 +1,17 @@
+class SQSmsgCleaner:
+    """Cleans up SQS messages to get the body"""
+    def __init__(self, message):
+        self.body = json.loads(message['Records'][0]['body'])
+
+#===Lambda Handler===
+def lambda_handler(event, context):
+
+    # Register Classes
+    database_scanner = DatabaseScanner()
+    data_processer = DataProcesser(database_scanner,bucketname='metrics-bucket')
+    sqsmsg = SQSmsgCleaner(event).body
+
+    # Run Processer
+    result = data_processer.load(sqsmsg)
+    print(result)
+    return {'statusCode': 200,'body': json.dumps(str(result))}

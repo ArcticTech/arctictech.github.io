@@ -1,0 +1,76 @@
+import json
+import boto3
+import decimal
+from boto3.dynamodb.conditions import Key as dynamoKey
+
+class DynamoPaginatedScanner:
+    """Scans raw data from dynamodb with pagination scan."""
+
+    @classmethod
+    def _scan_pagination_wrapper(self, target, **kwargs):
+        """Handles scans of data over 1mb.
+        https://stackoverflow.com/a/38619425/."""
+
+        response = target.scan(**kwargs)
+        data = []
+        if 'Items' in response:
+            data.extend(self._replace_decimals(response['Items']))
+        while response.get('LastEvaluatedKey'):
+            response = target.scan(ExclusiveStartKey=response['LastEvaluatedKey'], **kwargs)
+            if 'Items' in response:
+                data.extend(self._replace_decimals(response['Items']))
+        return data
+
+    @classmethod
+    def _replace_decimals(self, obj):
+        """Helper function replaces Decimal() and Binary() objects.
+        https://github.com/boto/boto3/issues/369/."""
+
+        if isinstance(obj, list):
+            for i in range(len(obj)):
+                obj[i] = self._replace_decimals(obj[i])
+            return obj
+        elif isinstance(obj, dict):
+            for k in obj.keys():
+                obj[k] = self._replace_decimals(obj[k])
+            return obj
+        elif isinstance(obj, decimal.Decimal):
+            if obj % 1 == 0:
+                return int(obj)
+            else:
+                return float(obj)
+        else:
+            return obj
+
+    @classmethod
+    def pscan(self, table, fe, fields=[]):
+
+        if len(fields) >= 1:
+            pe = ', '.join(fields)
+            return self._scan_pagination_wrapper(table,
+                ProjectionExpression=pe,
+                FilterExpression=fe)
+        else:
+            return self._scan_pagination_wrapper(table, FilterExpression=fe)
+
+#See Docs: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/customizations/dynamodb.html#ref-dynamodb-conditions
+
+def lambda_handler(event, context):
+    table_name = 'IADSS-Users'
+    region = 'us-east-1'
+    dynamodb = boto3.resource('dynamodb', region)
+    table = dynamodb.Table(table_name)
+
+    fe1 = dynamoKey('active').eq('True')
+    fe2 = dynamoKey('invited').eq('False')
+    fe3 = dynamoKey('protected').eq('False')
+    fe4 = dynamoAttr('tradingview_username').ne('lean-trader') #ne for not equal
+    fe5 = dynamoKey('notes').eq('')
+    fe = fe1 & fe2 & fe3 & fe4 & fe5 #use '|' for 'or'
+
+    result = DynamoPaginatedScanner.pscan(table, fe, fields=['patreon_email', 'tradingview_username'])
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps(result)
+    }

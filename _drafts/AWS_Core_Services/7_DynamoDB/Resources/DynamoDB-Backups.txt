@@ -1,0 +1,2 @@
+https://docs.aws.amazon.com/cli/latest/reference/dynamodb/create-backup.html
+https://docs.aws.amazon.com/cli/latest/reference/dynamodb/delete-backup.html

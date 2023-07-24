@@ -1,0 +1,32 @@
+Adding Event triggers to lambda see documentation:
+https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-eventsource.html
+
+Example:
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: LITE Database Writer
+Resources:
+  LITEWriter:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.9
+      CodeUri: s3://iadss-lite/cf-deployment-packages/LITE_Writer/v1_LITE_Writer-876fed09-3173-403d-abbf-a576a72eea9f.zip
+      Description: LITE Database Writer
+      MemorySize: 128
+      Timeout: 183
+      Role: 'arn:aws:iam::116583825520:role/lite-writer-custom-role'
+      Events:
+        SQSEvent:
+          Type: SQS
+          Properties:
+            Queue: 'arn:aws:sqs:us-east-1:116583825520:LITE-ZapierQueue'
+            BatchSize: 10
+            Enabled: true
+        ScheduleEvent:
+          Type: ScheduleV2
+          Properties:
+            Input: '{"event_type": "StripeSync_PROD"}'
+            ScheduleExpression: cron(30 9 * * ? *)
+```

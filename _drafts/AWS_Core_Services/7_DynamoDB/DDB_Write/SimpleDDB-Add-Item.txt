@@ -1,0 +1,78 @@
+import json
+import boto3
+from datetime import datetime
+from boto3.dynamodb.conditions import Key as dynamoKey
+
+class SimpleDynamoAdd:
+
+	def __init__(self, table_name, region = 'us-east-1'):
+		dynamodb = boto3.resource('dynamodb', region)
+		self.table = dynamodb.Table(table_name)
+
+	def query_basic(self, partition_key, value):
+		try:
+			query = self.table.query(
+				KeyConditionExpression=dynamoKey(partition_key).eq(value))
+			return query['Items']
+		except:
+			return []
+
+	def write(self, data):
+		try:
+			result = self.table.put_item(Item=data)
+			statusCode = result['ResponseMetadata']['HTTPStatusCode']
+
+			if statusCode == 200:
+				return {'status': 200, 'message': 'Write complete.', 'data': data}
+			else:
+				return {'status': 400, 'message': 'Error: inproper write.', 'data': None}
+		except:
+			return {'status': 400, 'message': 'Error: write failed.', 'data': None}
+
+	def exists(self, patreon_email):
+		response = self.query_basic('patreon_email', patreon_email)
+		if len(response) > 0:
+			return True
+		else:
+			return False
+
+	def createData(self, event):
+		data = {}
+		data['patreon_email'] = event['patreon_email'].lower().strip()
+		data['patreon_username'] = event['patreon_username'].strip()
+		data['tradingview_username'] = event['tradingview_username'].strip()
+		data['active'] = event['active'].strip()
+		data['invited'] = event['invited'].strip()
+		data['protected'] = event['protected'].strip()
+		data['response_id'] = ''
+		data['entry_date'] = str(datetime.now())
+		data['last_updated'] = str(datetime.now())
+		data['notes'] = event['notes'].strip()
+		return data
+
+	def run(self, event):
+		if self.exists(event['patreon_email']):
+			return {'status': 200, 'message': 'Data already exists. No action taken',
+					'data': None}
+		data = self.createData(event)
+		return self.write(data)
+
+def lambda_handler(event, context):
+  # Example Event
+  #{"patreon_email": "scott@investanswers.us",
+  #"patreon_username": "Scott Weber",
+  #"tradingview_username": "Mt_Scott",
+  #"active": "True",
+  #"invited": "True",
+  #"protected": "False",
+  #"notes": ""}
+
+	table_name = 'IADSS-Users' #'test_IADSS'
+	simple = SimpleDynamoAdd(table_name=table_name)
+	result = simple.run(event)
+
+	return {
+		'statusCode': result['status'],
+		'body': json.dumps(result['message']),
+		'data': json.dumps(result['data'])
+	}

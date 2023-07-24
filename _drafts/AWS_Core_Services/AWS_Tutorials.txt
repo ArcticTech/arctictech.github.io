@@ -1,0 +1,14 @@
+Great AWS Tutorials
+
+1. How to get HTTPS in aws
+ -- https://www.youtube.com/watch?v=z6pBUt2iLcU
+ -- https://www.youtube.com/watch?v=Ge-dkZgqLKg
+
+2. Workmail and SES
+- Workmail: https://www.youtube.com/watch?v=g3nDQ0-jxSU
+- SES for Discourse (see also Discourse guide): https://www.youtube.com/watch?v=KNCo56XL-7M
+
+3. Wordpress Migration Guide: https://www.youtube.com/watch?v=UTTLBjOaU60
+
+4. Transfer Domains: https://www.youtube.com/watch?v=mxFaGUriwjY
+

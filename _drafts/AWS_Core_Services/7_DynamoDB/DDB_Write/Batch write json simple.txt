@@ -1,0 +1,29 @@
+import json
+import boto3
+s3 = boto3.client('s3')
+dynamodb = boto3.resource('dynamodb', 'us-west-2')
+
+def lambda_handler(event, context):
+
+	bucket = 'sow.manual.data.pull.for.dev'
+	file_name = 'sow_assigned_proj_data_unload/sow_assigned_proj000'
+
+	#Get json object, read object, timestamp
+	s3_object = s3.get_object(Bucket=bucket,Key=file_name)
+
+	reader = s3_object['Body'].read()
+	json_data = json.loads(reader)
+	
+	#Put json data into dynamodb table
+	table = dynamodb.Table('test-table')
+
+	try:
+		with table.batch_writer() as batch:
+			for item in json_data:
+				batch.put_item(Item=item)
+
+		result = {'statusCode': 200,'body': json.dumps('Data inserted.')}
+	except:
+		result = {'statusCode': 400,'body': json.dumps('Error when trying to insert data.')}
+
+	return result

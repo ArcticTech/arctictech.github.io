@@ -1,0 +1,32 @@
+### Installing Visual Studios IDE
+
+Visual Studios is a good light-weight multi-language IDE. This guide is the baseline setup for Python.
+
+1. Install pylint (dependency of VS python extension).
+```
+pip3 install pylint
+```
+
+2. Install Visual Studios Code from:
+```
+https://code.visualstudio.com/
+```
+
+3. Enable the Python extension. File > Preferences > Extensions > Python Extension > Enable
+```
+"Python Extension" = "Enable"
+```
+
+4. Get rid of space-tabs. File > Preferences > Settings, then uncheck "Editor: Insert Spaces". Also uncheck "Editor: Detect Indention".
+```
+"Editor: Insert Spaces" = False
+"Editor: Detect Indention" = False
+```
+
+5. Show whitespace characters on the boundary. View > Render Whitespace
+```
+"Render Whitespace" = "boundary"
+```
+
+
+

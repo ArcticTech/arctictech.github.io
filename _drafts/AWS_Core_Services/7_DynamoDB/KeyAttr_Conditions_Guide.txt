@@ -1,0 +1,49 @@
+## DynamoDB conditions
+See documentation for details: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/customizations/dynamodb.html#boto3.dynamodb.conditions.Attr
+
+### class boto3.dynamodb.conditions.Key(name)[source]
+
+begins_with(value) - Creates a condition where the attribute begins with the value.
+
+between(low_value, high_value) - Creates a condition where the attribute is greater than or equal to the low value and less than or equal to the high value.
+
+eq(value) - Creates a condition where the attribute is equal to the value.
+
+gt(value) - Creates a condition where the attribute is greater than the value.
+
+gte(value) - Creates a condition where the attribute is greater than or equal to the value.
+
+lt(value) - Creates a condition where the attribute is less than the value.
+
+lte(value) - Creates a condition where the attribute is less than or equal to the value.
+
+### class boto3.dynamodb.conditions.Attr(name)[source]
+
+attribute_type(value)[source] - Creates a condition for the attribute type.
+
+begins_with(value) - Creates a condition where the attribute begins with the value.
+
+between(low_value, high_value) - Creates a condition where the attribute is greater than or equal to the low value and less than or equal to the high value.
+
+contains(value)[source] - Creates a condition where the attribute contains the value.
+
+eq(value) - Creates a condition where the attribute is equal to the value.
+
+exists()[source] - Creates a condition where the attribute exists.
+
+gt(value) - Creates a condition where the attribute is greater than the value.
+
+gte(value) - Creates a condition where the attribute is greater than or equal to the value.
+
+is_in(value)[source] - Creates a condition where the attribute is in the value,
+
+lt(value) - Creates a condition where the attribute is less than the value.
+
+lte(value) - Creates a condition where the attribute is less than or equal to the value.
+
+ne(value)[source] - Creates a condition where the attribute is not equal to the value
+
+not_exists()[source] - Creates a condition where the attribute does not exist.
+
+size()[source] - Creates a condition for the attribute size.
+

@@ -1,0 +1,134 @@
+import json
+import boto3
+from boto3.dynamodb.conditions import Key as dynamoKey
+from boto3.dynamodb.conditions import Attr as dynamoAttr
+
+class DynamoUtility:
+
+	def __init__(self, table_name, region = 'us-east-1'):
+		dynamodb = boto3.resource('dynamodb', region)
+		self.table_name = table_name
+		self.table = dynamodb.Table(self.table_name)
+
+	def query(self, pkey, pvalue, skey=None, svalue=None, fe=None):
+		#Example 1: fe = dynamoAttr('customer_tvname').eq('test')
+		#Example 2: fe = dynamoAttr('customer_tvname').ne('N/A')
+
+		try:
+			if skey != None and svalue != None and fe != None:
+				response = self.table.query(
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue)
+					& dynamoKey(skey).eq(svalue), FilterExpression=fe)
+			elif skey != None and svalue != None and fe == None:
+				response = self.table.query(
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue)
+					& dynamoKey(skey).eq(svalue))
+			elif skey == None and svalue == None and fe != None:
+				response = self.table.query(
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue),
+					FilterExpression=fe)
+			else:
+				response = self.table.query(
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue))
+
+			result = response['Items']
+
+			if len(result) > 0:
+				return {'status': 200,
+						'message': 'Successfully retrieved data for: {}={}'.format(pkey, pvalue),
+						'data': result}
+			else:
+				return {'status': 202,
+						'message': 'Successfully queried, but returned empty' +
+									' for: {}'.format(pvalue), 'data': result}
+		except:
+			return {'status': 400,
+					'message': 'Error: failed to query data for: {}={}'.format(pkey, pvalue),
+					'data': None}
+
+	def query_gsi(self, gsi, pkey, pvalue, skey=None, svalue=None, fe=None):
+		try:
+			if skey != None and svalue != None and fe != None:
+				response = self.table.query(
+					IndexName=gsi,
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue)
+					& dynamoKey(skey).eq(svalue), FilterExpression=fe)
+			elif skey != None and svalue != None and fe == None:
+				response = self.table.query(
+					IndexName=gsi,
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue)
+					& dynamoKey(skey).eq(svalue))
+			elif skey == None and svalue == None and fe != None:
+				response = self.table.query(
+					IndexName=gsi,
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue),
+					FilterExpression=fe)
+			else:
+				response = self.table.query(
+					IndexName=gsi,
+					KeyConditionExpression=dynamoKey(pkey).eq(pvalue))
+
+			result = response['Items']
+
+			if len(result) > 0:
+				return {'status': 200,
+						'message': 'Successfully retrieved gsi data for: {}={}'.format(pkey, pvalue),
+						'data': result}
+			else:
+				return {'status': 202,
+						'message': 'Successfully queried gsi, but returned empty' +
+									' for: {}'.format(pvalue), 'data': result}
+		except:
+			return {'status': 400,
+					'message': 'Error: faild to query gsi data for: {}={}'.format(pkey, pvalue),
+					'data': None}
+
+	def write(self, data, pkey):
+		pvalue = data[pkey]
+		try:
+			result = self.table.put_item(Item=data)
+			statusCode = result['ResponseMetadata']['HTTPStatusCode']
+
+			if statusCode == 200:
+				return {'status': 200,
+						'message': 'Successful write to {} for: {}={}'.format(self.table_name, pkey, pvalue),
+						'data': data}
+			else:
+				write_error = 'Write Error: could not write to {} for: {}={}'.format(self.table_name, pkey, pvalue)
+				return {'status': 400, 'message': statusCode, 'data': data}
+		except:
+			return {'status': 400,
+					'message': 'Error: failed write to {} for: {}={}'.format(self.table_name, pkey, pvalue),
+					'data': data}
+
+	def batch_write(self, data_list, pkey):
+		try:
+			pvalues = []
+			with self.table.batch_writer() as batch:
+				for data in data_list:
+					pvalues.append(data[pkey])
+					batch.put_item(Item=data)
+			return {'status': 200,
+					'message': 'Successfully batch wrote to {}'.format(self.table_name),
+					'data': pvalues}
+		except:
+			return {'status': 400,
+					'message': 'Error: failed to batch write to {}'.format(self.table_name),
+					'data': pvalues}
+
+	def batch_delete(self, data_list, pkey, skey=None):
+		try:
+			pvalues = []
+			with self.table.batch_writer() as batch:
+				for data in data_list:
+					pvalue = data[pkey]; svalue = data[skey]
+					pvalues.append(pvalue)
+					if skey == None:
+						batch.delete_item(Key={pkey: pvalue})
+					else:
+						batch.delete_item(Key={pkey: pvalue, skey: svalue})
+			return {'status': 200, 'message': 'Successfully batch delete from {}'.format(self.table_name),
+					'data': pvalues}
+		except:
+			return {'status': 400, 'message': 'Error: failed to batch delete from {}'.format(self.table_name),
+					'data': pvalues}

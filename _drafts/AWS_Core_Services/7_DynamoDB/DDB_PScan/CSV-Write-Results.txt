@@ -1,0 +1,115 @@
+import csv
+import json
+import boto3
+import decimal
+from datetime import datetime
+from boto3.dynamodb.conditions import Key as dynamoKey
+
+class DynamoPaginatedScanner:
+	"""Scans dynamodb data with pagination."""
+
+	@classmethod
+	def _scan_pagination_wrapper(self, target, **kwargs):
+		"""Handles scans of data over 1mb.
+		https://stackoverflow.com/a/38619425/."""
+
+		response = target.scan(**kwargs)
+		data = []
+		if 'Items' in response:
+			data.extend(self._replace_decimals(response['Items']))
+		while response.get('LastEvaluatedKey'):
+			response = target.scan(ExclusiveStartKey=response['LastEvaluatedKey'], **kwargs)
+			if 'Items' in response:
+				data.extend(self._replace_decimals(response['Items']))
+		return data
+
+	@classmethod
+	def _replace_decimals(self, obj):
+		"""Helper function replaces Decimal() and Binary() objects.
+		https://github.com/boto/boto3/issues/369/."""
+
+		if isinstance(obj, list):
+			for i in range(len(obj)):
+				obj[i] = self._replace_decimals(obj[i])
+			return obj
+		elif isinstance(obj, dict):
+			for k in obj.keys():
+				obj[k] = self._replace_decimals(obj[k])
+			return obj
+		elif isinstance(obj, decimal.Decimal):
+			if obj % 1 == 0:
+				return int(obj)
+			else:
+				return float(obj)
+		else:
+			return obj
+
+	@classmethod
+	def pscan(self, table, fields=[]):
+		"""fields = ['timestampUnix', 'ddbuuid']"""
+
+		if len(fields) >= 1:
+			pe = ', '.join(fields)
+			return self._scan_pagination_wrapper(table,
+				ProjectionExpression=pe)
+		else:
+			return self._scan_pagination_wrapper(table)
+
+class SimpleDynamoPull:
+
+	def __init__(self, table_name, bucket, bucket_folder, csv_filename, region = 'us-east-1'):
+		dynamodb = boto3.resource('dynamodb', region)
+		self.table = dynamodb.Table(table_name)
+		self.s3 = boto3.client('s3')
+		self.bucket = bucket
+		self.bucket_folder = bucket_folder
+		self.csv_filename = csv_filename
+		self.dbdata = None
+
+	def ddb_pscan(self, fields=[]):
+		ddbps = DynamoPaginatedScanner()
+		return ddbps.pscan(self.table, fields)
+
+	def run(self):
+		data = self.ddb_pscan(fields=[
+			'patreon_email',
+			'patreon_username',
+			'tradingview_username',
+			'active',
+			'invited',
+			'protected',
+			'response_id',
+			'entry_date',
+			'last_updated',
+			'notes'])
+
+		try:
+			with open('/tmp/'+self.csv_filename, 'w') as output_file:
+				writer = csv.writer(output_file)
+				header = True
+				for item in data:
+					if header:
+						writer.writerow(item.keys())
+						header = False
+					writer.writerow(item.values())
+
+			destination = self.bucket_folder +'/'+ self.csv_filename
+			self.s3.upload_file('/tmp/'+self.csv_filename, self.bucket, destination)
+			return {'status': 200, 'message': 'Successfully created: {}'.format(destination)}
+		except:
+			return {'status': 400, 'message': 'Error: Failed to create csv.'}
+
+def lambda_handler(event, context):
+	table_name = 'IADSS-Users'
+	bucket = 'iadss'
+	bucket_folder = 'db_output'
+	today_date = str(datetime.now().strftime("%m%d%y"))
+	csv_filename = 'iadss-user_{}.csv'.format(today_date)
+
+	dbpull = SimpleDynamoPull(table_name, bucket, bucket_folder, csv_filename)
+	response = dbpull.run()
+
+	return {
+		'statusCode': response['status'],
+		'body': json.dumps(response['message'])
+	}

@@ -1,0 +1,3 @@
+ssh -i /Users/nicehost/Documents/Local_Files/IA_AWS_Local/LightsailDefaultKey-us-east-1.cer ubuntu@172.26.1.218
+
+sudo git clone https://github.com/discourse/discourse_docker.git /var/discourse

@@ -1,0 +1,39 @@
+import csv
+import json
+import codecs
+import boto3
+
+class DataSync:
+
+	def __init__(self, table_name, bucket, region = 'us-east-1'):
+		dynamodb = boto3.resource('dynamodb', region)
+		self.table = dynamodb.Table(table_name)
+		self.s3 = boto3.client('s3')
+		self.bucket = 'iadss'
+
+	def ddb_batch_write(self, data):
+		try:
+			with self.table.batch_writer() as batch:
+				for item in data:
+					batch.put_item(Item=item)
+			return {'status': 200, 'message': 'Data insert successful.'}
+		except:
+			return {'status': 400,'body': 'Error inserting data into ddb table.'}
+
+	def csv_reader(self, filepath):
+		s3_object = self.s3.get_object(Bucket=self.bucket, Key=filepath)
+		body = s3_object['Body']
+		data = list(csv.DictReader(codecs.getreader('utf-8-sig')(body)))
+		return data
+
+def lambda_handler(event, context):
+	# ===== Register Objects =====
+	dataSync = DataSync(table_name='IADSS-Users', bucket='iadss')
+
+	# ===== Get Response =====
+	data = dataSync.csv_reader(filepath='active-patreon/220531_patreon.csv')
+	# Data example: [{'patreon_email': 'hello', 'tradingview_username': 'test', 'active': 'False'}]
+
+	response = dataSync.ddb_batch_write(data)
+	return {'statusCode': response['status'],'body': json.dumps(response['message'])}
+

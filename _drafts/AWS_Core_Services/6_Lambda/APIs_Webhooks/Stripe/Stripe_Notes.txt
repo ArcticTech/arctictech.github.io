@@ -1,0 +1,12 @@
+Stripe Documentation: https://stripe.com/docs/api/customers/object?lang=curl#customer_object-subscriptions.
+Stripe CLI: https://stripe.com/docs/stripe-cli
+
+Get Customer Subscriptions:
+```
+curl https://api.stripe.com/v1/customers/cus_MxAgX7Rvm1CUGK -u sk_live_XXXXXXX -d "expand[]"="subscriptions.data"
+
+product = customer_data['subscriptions']['data'][0]['items']['data'][0]['plan']['product']
+active = customer_data['subscriptions']['data'][0]['items']['data'][0]['plan']['active']
+```
+
+

@@ -1,0 +1,22 @@
+Plugin Install Guide
+https://meta.discourse.org/t/install-plugins-in-discourse/19157
+
+Plugin List
+https://www.discourse.org/plugins
+
+Push Notification Guide
+https://github.com/discourse/discourse-push-notifications
+https://meta.discourse.org/t/discourse-push-notifications-for-desktop/86941
+
+Emojis
+https://meta.discourse.org/t/discourse-reactions/183261
+https://github.com/discourse/discourse-reactions.git
+
+Solved
+https://github.com/discourse/discourse-solved.git
+
+Cakeday
+https://github.com/discourse/discourse-cakeday.git
+
+
+

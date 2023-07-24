@@ -1,0 +1,37 @@
+## Google Forms API
+
+In order to automate the Google Forms API you are required to use a Service Account and you MUST have a Google Workspaces account. See documentation below:
+https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority
+
+Here is a walk through of setting up your Service Account and configuring the proper permissions:
+https://www.youtube.com/watch?v=SpmWlHRVn9c
+
+Here is the documentation on the Google Forms API: https://developers.google.com/forms/api/quickstart/python
+
+Services Account Link: https://admin.google.com/ac/home
+Google Cloud Console Link: https://console.cloud.google.com/
+
+These are the required packages:
+```
+pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
+```
+
+Calling Google Forms API using this code:
+```
+from __future__ import print_function
+from apiclient import discovery
+from google.oauth2 import service_account
+
+SCOPES = ['https://www.googleapis.com/auth/forms.body.readonly', 'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/forms.responses.readonly']
+SERVICE_ACCOUNT_FILE = '/home/ubuntu/service.json'
+DISCOVERY_DOC = "https://forms.googleapis.com/$discovery/rest?version=v1"
+
+credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+delegated_credentials = credentials.with_subject('info@investanswers.us')
+service = discovery.build('forms', 'v1', credentials=delegated_credentials, discoveryServiceUrl=DISCOVERY_DOC, static_discovery=False)
+
+form_id = '1pMyTOqbSd3w153SWjvW_Qh5HADbYaTe3rQW_8UcgMCY'
+result = service.forms().responses().list(formId=form_id).execute()
+print(result)
+```
+

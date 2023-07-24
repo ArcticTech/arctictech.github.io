@@ -1,0 +1,30 @@
+## Basic Table Structure
+
+This guide goes over how to structure a DynamoDB table for scalability.
+
+Basic Table structure is as follows:
+
+```
+{
+ "insert_timestamp": "2021-11-21 03:21:31.431931",
+ "uuid_ddb": "de1c22f3-d593-4d51-9420-3e80e4a21ea7",
+ "example_secondary_index": "example_1",
+ "example_data": "data_value",
+ "update_timestamp": "2021-11-21 03:21:31.431931"
+}
+```
+
+How to create in insert_timestamp and uuid_ddb in python:
+```
+from datetime import datetime
+from uuid import uuid4
+
+insert_timestamp = datetime.now())
+update_timestamp = uuid4()
+```
+
+Configurations of this table:
+insert_timestamp - This is the timestamp of when an item was inserted into the table. This makes a good partition key as items will be stacked by date making getting the latest data quite easily. 
+
+uuid_ddb - This is a uuid4 code for a unique sort key.
+

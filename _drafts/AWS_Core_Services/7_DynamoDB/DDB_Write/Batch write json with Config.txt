@@ -1,0 +1,57 @@
+import json
+import boto3
+from boto3.dynamodb.conditions import Key, Attr
+s3 = boto3.client('s3')
+dynamodb = boto3.resource('dynamodb', 'us-west-2')
+
+def lambda_handler(event, context):
+
+	bucket = 'sow-cross-region-beta-uswest-2'
+	file_name = 'sow_assigned_proj000'
+	
+	s3_object = s3.get_object(Bucket=bucket,Key=file_name)
+	table = dynamodb.Table('scope_of_work_manufacture_override')
+	config_table = dynamodb.Table('scope_of_work_config_beta')
+
+	#Get json object, read object, timestamp, snapshot
+	reader = s3_object['Body'].read()
+	json_data = json.loads(reader)
+
+	new_timestamp = json_data[0]['upload_timestamp']
+	new_snapshot = json_data[0]['snapshot_date']
+
+	#Check to see if snapshot is new
+	query_snapshot = config_table.query(
+		KeyConditionExpression=Key('config_type').eq('latest_manufacture_override_snapshot'))
+
+	cur_snapshot = query_snapshot['Items'][0]['config_value']
+	
+	if new_snapshot <= cur_snapshot:
+		result = {'statusCode': 200,'body': json.dumps('Already in database.')}
+		return result
+
+	#Put json data into dynamodb table
+	try:
+		with table.batch_writer() as batch:
+			for item in json_data:
+				batch.put_item(Item=item)
+
+		#Write to config table
+		latest_manufacture_override_timestamp = {
+			'config_type': 'latest_manufacture_override_timestamp',
+			'config_key' : 'latest_manufacture_override_timestamp',
+			'config_value' : new_timestamp}
+	
+		latest_manufacture_override_snapshot = {
+			'config_type': 'latest_manufacture_override_snapshot',
+			'config_key' : 'latest_manufacture_override_snapshot',
+			'config_value' : new_snapshot}
+
+		config_table.put_item(Item=latest_manufacture_override_timestamp)
+		config_table.put_item(Item=latest_manufacture_override_snapshot)
+
+		result = {'statusCode': 200,'body': json.dumps('Data inserted.')}
+	except:
+		result = {'statusCode': 400,'body': json.dumps('Error when trying to insert data.')}
+
+	return result
