@@ -4,6 +4,7 @@ date: 2023-07-20 03:00:00 -700
 categories: [Aws-iam,Guides]
 tags: [aws,iam,tutorial]
 ---
+
 ## IAM Basics Tutorial
 This is a basics tutorial on AWS Identity and Access Management (IAM). IAM is a service provided that enables users to securely control access to AWS resources. IAM allows you to create and manage users, groups, and roles with specific permissions, granting fine-grained control over who can perform certain actions on AWS resources. By defining IAM policies, you can ensure that each user or application has precisely the necessary permissions to carry out their tasks, thereby maintaining the security and integrity of your AWS infrastructure. IAM is a fundamental component of AWS security, providing centralized access management to safeguard your cloud resources. allowing you to create Users, Groups, Roles, etc.
 
