@@ -8,9 +8,9 @@ tags: [aws,lambda,slack]
 ## Slack Webhooks Guide
 This is a guide on Slack Webhooks and using AWS Lambda to send messages to Slack via the webhook. The Slack webhook is a feature that allows external applications to send messages directly to Slack channels. It provides a unique URL that acts as a bridge between the application and Slack, enabling automated messages, notifications, or data updates to be posted in real-time. Webhooks are a powerful tool for integrating external systems with Slack, facilitating seamless communication and collaboration within teams.
 
-### Setup a Webhook
+### Setup the Webhook
 To setup a webhook simply do the following.
-1. Go to the Slack API website: https://api.slack.com/apps and sign in with your Slack account.
+1. Go to the Slack API website: ```https://api.slack.com/apps``` and sign in with your Slack account.
 2. Create a new Slack app by clicking on the "Create an App" button.
 3. Click "From Scratch" to create an app from scratch.
 4. Give your app a name and select the workspace where you want to use the webhook and click create app.
