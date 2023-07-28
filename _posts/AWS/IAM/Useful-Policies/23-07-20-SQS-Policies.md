@@ -21,8 +21,6 @@ tags: [aws,iam]
                 "sqs:GetQueueAttributes",
                 "sqs:ListQueueTags",
                 "sqs:ListDeadLetterSourceQueues",
-                "sqs:DeleteMessageBatch",
-                "sqs:ChangeMessageVisibilityBatch",
                 "sqs:SetQueueAttributes"
             ],
             "Effect": "Allow",
