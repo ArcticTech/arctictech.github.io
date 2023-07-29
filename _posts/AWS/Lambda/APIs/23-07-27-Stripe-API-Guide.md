@@ -1,6 +1,6 @@
 ---
 title: Stripe API Guide
-date: 2023-07-27 05:00:00 -700
+date: 2023-07-27 06:00:00 -700
 categories: [Aws-lambda,APIs]
 tags: [aws,lambda,stripe]
 ---

@@ -25,6 +25,7 @@ https://hooks.slack.com/services/XXXXXXX/XXXXXXXX/XXXXXXXXXXXXX
 ### Use the Webhook
 To use the webhook, simply load the following code into your Lambda function and post a "Hello World" message to the webhook. Be sure to replace the ```webhook_url``` with your webhook URL. See Lambda Basics Tutorial for instructions on how to set up an AWS Lambda.
 
+1. Add the following Slack Utility code to your lambda function.
 ```python
 import json
 import urllib3
@@ -39,10 +40,14 @@ class SlackUtility:
 		request = {'text': text}
 		encoded_request = json.dumps(request).encode('utf-8')
 		return http.request('POST', webhook_url, body=encoded_request)
-#
-text = 'Hello World'
-webhook_url = https://hooks.slack.com/services/XXXXXXX/XXXXXXXX/XXXXXXXXXXXXX
-SlackUtility.post(text, webhook_url)
+```
+
+2. Use the Slack Utility to post this message to Slack with your lambda handler.
+```python
+def lambda_handler(event, context):
+	text = 'Hello World'
+	webhook_url = 'https://hooks.slack.com/services/XXXXXXX/XXXXXXXX/XXXXXXXXXXXXX'
+	return SlackUtility.post(text, webhook_url)
 ```
 
 ### Conclusion

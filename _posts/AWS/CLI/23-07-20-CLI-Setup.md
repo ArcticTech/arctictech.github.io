@@ -31,7 +31,7 @@ aws --version
 ```
 aws configure
 ```
-* Configuration can look as follows
+* Configuration can look as follows:
 ```
 AWS Access Key ID: *****
 AWS Secret Access Key: *****
@@ -39,9 +39,10 @@ Default region name: us-east-1
 Default output format:
 ```
 
-5. You can see your credentials using the following command:
+5. You can see your credentials and your config with the following:
 ```
 cat ~/.aws/credentials
+cat ~/.aws/config
 ```
 
 Note: In general, using roles is preferred to using credentials, see this [howtogeek.com article on roles vs credentials](https://www.howtogeek.com/devops/iam-users-vs-iam-roles-which-one-should-you-use/) for details. To use roles, refer to the IAM Roles guide.
