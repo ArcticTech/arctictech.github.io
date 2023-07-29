@@ -2,7 +2,7 @@
 title: CloudWatch Billing Alarm Guide
 date: 2023-07-23 04:50:00 -700
 categories: [Aws-cloudwatch]
-tags: [aws,cloudwatch]
+tags: [aws,cloudwatch,sns]
 ---
 
 ## CloudWatch Billing Alarm Guide
@@ -41,7 +41,7 @@ Create a new topic = "AWS_Billing_Topics"
 Email endpoint = "[YOUR EMAIL HERE]"
 ```
 
-6. Give your alarm a name, add a description, and click create.
+6. Give your alarm a name, add a description, and click Create.
 ```
 Alarm name = "Billing Total >$25
 Alarm description = "[YOUR ACCOUNT NAME] Aws account billing total has exceeded $25.00"

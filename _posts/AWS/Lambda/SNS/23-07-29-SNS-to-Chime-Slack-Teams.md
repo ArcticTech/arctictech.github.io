@@ -1,18 +1,25 @@
-## Lambda SNS Publish to Chime Guide
-This is a guide on using Lambda and SNS to publish messages to Amazon Chime chat room, or to Slack or Microsoft Teams channel via webhooks. This is a great use case for publishing billing alarms to one of these chat applications.
+---
+title: SNS Publish to Chime/Slack/Teams
+date: 2023-07-29 00:00:00 -700
+categories: [Aws-lambda,SNS]
+tags: [aws,lambda,sns,slack]
+---
+
+## SNS Publish to Chime/Slack/Teams
+This is a guide on using Lambda and SNS to publish messages to an Amazon Chime chat room, or Slack or Microsoft Teams channels via webhooks. This is a great use case for publishing billing alarms to one of these chat applications.
 
 ### Objective
 Once set up, we should have a good understanding of how to use SNS to trigger a Lambda to post to a webhook.
 
 ### Prerequisites
-In order do this guide you must have knowledge of how to set up an SNS topic. You can create your own topic or use the example SNS billing topic we created to receive CloudWatch billing alarms called: AWS_Billing_Topics. See Setup CloudWatch Billing Alarm Guide for more details.
+To do this guide you must know how to set up an SNS topic. See the "SNS Guide" for details. You can also go through the "CloudWatch Billing Alarm" guide, we can use the SNS billing topic created in that guide to publish to Chime/Slack/Teams.
 ```
 Name = "AWS_Billing_Topics"
 ARN = "arn:aws:sns:us-xxxx-x:XXXXXXXXX:AWS_Billing_Topics"
 ```
 
 ### Lambda Publisher for Chime
-1. For Chime, grab the webhook URL for your chime channel. It should look like the following:
+1. For Chime, grab the webhook URL for your Chime channel. It should look like the following:
 ```
 Chime webhook url: https://hooks.chime.aws/incomingwebhooks/ewiou49-lkfsjd-l23j4-lj2948-our3048?token=XXXXXX
 ```
@@ -22,7 +29,7 @@ See this guide for more details on chime webhooks: https://docs.aws.amazon.com/c
 ```
 Author From Scratch = True
 Function Name = "AWS_Billing_Publisher"
-Runtime = "Python 3.9"
+Runtime = "Python 3.x"
 ```
 3. In the lambda function navigate to Configuration > Environment Variables and add the webhook as an environmental variable.
 ```
@@ -59,7 +66,7 @@ Event name = "test"
 6. Click Test to test the function. If successful you should receive a notification in Chime.
 
 ### Subscribe Lambda to SNS Topic
-Next we need to subscribe our Lambda to our SNS topic. You must have an SNS topic you want to subscribe to already created. We will subscibe our lambda function to the AWS_Billing_Topics that we created in the Setup CloudWatch Billing Alarm Guide.
+Next, we need to subscribe our Lambda to our SNS topic. You must have an SNS topic you want to subscribe to already created. We will subscribe our lambda function to the AWS_Billing_Topics that we created in the Setup CloudWatch Billing Alarm Guide.
 
 1. In the lambda function click Add Trigger and configure the following and click Add:
 ```
@@ -129,4 +136,4 @@ def lambda_handler(event, context):
 ```
 
 ### Result
-Now you should be able to use SNS to trigger a Lambda to post to a webhook. SNS with Lambda allow you to automatically publish all kinds of notifications and alarms.
+Now you should be able to use SNS to trigger a Lambda to post to a webhook. SNS with Lambda allows you to automatically publish all kinds of notifications and alarms.
