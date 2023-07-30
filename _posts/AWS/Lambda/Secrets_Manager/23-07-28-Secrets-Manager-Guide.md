@@ -2,7 +2,7 @@
 title: Secrets Manager Guide
 date: 2023-07-28 08:00:00 -700
 categories: [Aws-lambda,Secrets-Manager]
-tags: [aws,secrets-manager]
+tags: [aws,aws-lambda,secrets-manager]
 ---
 
 ## Secrets Manager Guide
