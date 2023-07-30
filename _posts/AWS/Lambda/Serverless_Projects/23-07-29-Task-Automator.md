@@ -2,7 +2,7 @@
 title: Task Automator Project
 date: 2023-07-29 08:00:00 -700
 categories: [Aws-lambda,Serverless-Projects]
-tags: [aws,lambda,eventbridge,serverless-projects]
+tags: [aws,lambda,dynamodb,eventbridge,serverless-projects]
 ---
 
 ## Task Automator Project

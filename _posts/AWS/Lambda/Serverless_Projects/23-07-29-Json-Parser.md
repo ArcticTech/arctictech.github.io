@@ -2,7 +2,7 @@
 title: JSON Parser Project
 date: 2023-07-29 07:30:00 -700
 categories: [Aws-lambda,Serverless-Projects]
-tags: [aws,lambda,serverless-projects]
+tags: [aws,lambda,dynamodb,serverless-projects]
 ---
 
 ## JSON Parser Project

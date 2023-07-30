@@ -1,4 +1,11 @@
-## Serverless Website Guide
+---
+title: Serverless Website Project
+date: 2023-07-29 09:30:00 -700
+categories: [Aws-lambda,Serverless-Projects]
+tags: [aws,lambda,s3,route53,serverless-projects]
+---
+
+## Serverless Website Project
 This is a guide on setting up a Serverless Website using AWS Lambda. AWS Lambda allows you to upload your code and create a lambda function. AWS takes care of provisioning and managing the servers that you need to run the code. You don't need to worry about OS, patching, scaling, etc. The architecture of our web app will be:
 1. The user goes to a web URL which it's Route53 to get the DNS address.
 2. They will access the static contents of the web page hosted in an S3 bucket. There will be a button on the page and when activated it will give dynamic content.
@@ -7,10 +14,7 @@ This is a guide on setting up a Serverless Website using AWS Lambda. AWS Lambda 
 5. API Gateway will return that result to the user.
 
 ### Objective
-Once set up, we should have a good understanding of the process of setting up a serverless website with Lambda and API Gateway. We should be able to see a web page with a "Hello World" message and a button. By clicking on the button on the webpage it will trigger the lambda function which will change "Hello World" to your custom message. See the following example:
-```
-pathfinder.io
-```
+Once set up, we should have a good understanding of the process of setting up a serverless website with Lambda and API Gateway. We should be able to see a web page with a "Hello World" message and a button. By clicking on the button on the webpage it will trigger the lambda function which will change "Hello World" to your custom message.
 
 ### Prerequisites
 To do this guide you must know how to set up Route53. See Setup Route53 Guide for more details. You must also have a little bit of experience with Python, how to create S3 buckets, and a bit of experience with CloudFront. See Setup CloudFront Guide for more details. Further, you must already have created a registered domain with hosted zones set up.
@@ -36,8 +40,8 @@ We'll need an S3 bucket to hold all of the resources for our website. Then we wi
 S3 Bucket Name = "hello-world-webpage"
 ```
 2. Create a folder in the bucket called "Controller". We'll put our execution code in here.
-3. Create a Python file called "helloworldlambda.py" and in the file paste in the following Python code.
-```
+3. Create a Python file called "helloworldlambda.py" and in the file paste the following Python code.
+```python
 import json
 #
 def lambda_handler(event, context):
@@ -50,7 +54,7 @@ def lambda_handler(event, context):
 		"body": json.dumps("Hello [YOUR NAME HERE]")}
 	return result
 ```
-3. Put this Python file into a zip file. We will name it: "helloworldlambda.zip".
+3. Put this Python file into a zip file. We will name it: ```helloworldlambda.zip```.
 4. Upload this zip file into the bucket folder you created, in our case, it's "Controller". Then note the bucket path, in our case:
 ```
 Object URL = "https://hello-world-webpage.s3.amazonaws.com/Controller/helloworldlambda.zip"
@@ -62,9 +66,9 @@ Next, we'll need to upload the code into our lambda function.
 ```
 Amazon S3 link URL = "https://hello-world-webpage.s3.amazonaws.com/Controller/helloworldlambda.zip"
 ```
-2. For the Runtime make sure it is "Python 3.7" and for the Handler change it to "helloworldlambda.lambda_handler".
+2. For the Runtime make it the latest version of Python and for the Handler change it to "helloworldlambda.lambda_handler".
 ```
-Runtime = "Python 3.7"
+Runtime = "Python 3.x"
 Handler = "helloworldlambda.lambda_handler"
 ```
 
@@ -114,11 +118,12 @@ Invoke URL = "https://rf08hhuowb.execute-api.us-east-1.amazonaws.com/default/Hel
 
 ### Configure S3 Bucket for Hosting
 Now that our lambda function is working, we'll create the contents of our static website. Our webpage will be a simple webpage that has a "Hello World" with a button that activates a script. This script hits the API gateway which triggers the lambda function and changes the "Hello World" to the message you created.
-1. Create an "index.html" file and add the following code to the file:
-```
-<html>
-<head>
-<script>
+
+1. Create an ```index.html``` file and add the following code to the HTML file (replace ```&lt;``` with ```<```):
+```html
+&lt;html>
+&lt;head>
+&lt;script>
 function myFunction() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -126,27 +131,28 @@ function myFunction() {
 			document.getElementById("hello-user").innerHTML = this.responseText.replace(/['"]+/g, '');}};
 	xhttp.open("GET", "[YOUR API INVOKE URL HERE]", true);
 	xhttp.send();}
-</script>
-</head>
-<body>
-<div align="center"><br><br><br><br>
-	<h1>Hello World<br><span id="hello-user"></span></h1>
-	<button onclick="myFunction()">Click me</button>
-</div>
-</body>
-</html>
+&lt;/script>
+&lt;/head>
+&lt;body>
+&lt;div align="center">
+	&lt;h1>Hello World&lt;/h1>
+	&lt;span id="hello-user">&lt;/span>
+	&lt;button onclick="myFunction()">Click me&lt;/button>
+&lt;/div>
+&lt;/body>
+&lt;/html>
 ```
-2. In the "index.html" code make sure to replace the "[YOUR API INVOKE URL HERE]" with your invoke URL. In our case it looks like this:
+2. In the ```index.html``` code make sure to replace the "[YOUR API INVOKE URL HERE]" with your invoke URL. It looks like this:
 ```
 xhttp.open("GET", "https://rf08hhuowb.execute-api.us-east-1.amazonaws.com/default/HelloWorldFunction", true);
 ```
-3. Create an "error.html" file and add the following code:
+3. Create an ```error.html``` file and add the following code:
+```html
+&lt;html>&lt;head>&lt;/head>&lt;body>
+	&lt;h1>Error! There was a problem loading the page.&lt;/h1>
+&lt;/body>&lt;/html>
 ```
-<html><head></head><body>
-	<h1>Error! There was a problem loading the page.</h1>
-</body></html>
-```
-4. Upload your "index.html" and "error.html" file into your S3 bucket, in our case it is the "hello-world-webpage" bucket.
+4. Upload your ```index.html``` and ```error.html``` file into your S3 bucket, in our case it is the ```hello-world-webpage``` bucket.
 5. Next, we will configure the bucket to allow for static website hosting. Go to Properties > Static Website Hosting > Use this bucket to host a website.
 ```
 Index document = "index.html"
@@ -155,18 +161,18 @@ Error document = "error.html"
 6. Note that we did not change any of the default permissions of our bucket. It continues to be a private bucket with all public access turned off and blocked to the outside. We will use CloudFront for our users to access through Origin Access Identity.
 
 ### Setup CloudFront Distribution
-Next we will configure a CloudFront distribution. With CloudFront our users should see a significant load speed increase even if they are farther away from the origin of our web server. They will be loading our website that is cached their nearest edge location rather than from the data center that houses our website. Further, with CloudFront's Origin Access Identity (OAI) will allow us to restrict bucket access to only come from Cloudfront. This allows us to continue to keep our bucket private with all public access turned off and blocked to the outside since CloudFront is what's serving the content to the user. Hence, this content delivery setup is not only faster, but also happens to be more secure.
+Next, we will configure a CloudFront distribution. With CloudFront our users should see a significant load speed increase even if they are farther away from the origin of our web server. They will be loading the website cached to the nearest edge location rather than from the data center that houses our website. Further, CloudFront's Origin Access Identity (OAI) will allow us to restrict bucket access to only come from Cloudfront. This allows us to continue to keep our bucket private with all public access turned off and blocked to the outside since CloudFront is what's serving the content to the user. Hence, this content delivery setup is not only faster, but also happens to be more secure.
 
-CloudFront is a prerequisite for this guide. Follow the Setup CloudFront Guide to setup the distribution. Once setup you should have a CloudFront distribution link, in our case it is the following:
+CloudFront is a prerequisite for this guide. Follow the Setup CloudFront Guide to setup the distribution. Once setup you should have a CloudFront distribution link, it is the following:
 ```
 dses1gtkjha6s.cloudfront.net
 ```
 
-We can go to this link and you should see your web page with the "Hello World" message and a button. By clicking on the button in the webpage it will trigger the lambda function which will change "Hello World" to your custom message. Now we can connect this to our DNS with Route53
+We can go to this link and you should see your web page with the "Hello World" message and a button. By clicking on the button on the webpage it will trigger the lambda function which will change "Hello World" to your custom message. Now we can connect this to our DNS with Route53
 
 ### Connect to Route53
-Now we can connect our domain to this address using Route53. We will use the one we created in the Setup Route53 Guide. In our case it's "pathfinder.io".
-1. Go to Route53, select your domain, click "Hosted zones" > "Create Record Set".
+Now we can connect our domain to this address using Route53. We will use the one we created in the Setup Route53 Guide.
+1. Go to Route53, select your domain, and click "Hosted zones" > "Create Record Set".
 2. Under "Alias" click yes then for "Alias Target" select your S3 website endpoint and click create.
 ```
 Alias = "Yes"
@@ -174,8 +180,4 @@ Alias Target = "dses1gtkjha6s.cloudfront.net"
 ```
 
 ### Result
-Now for testing, you should be able to access your website by accessing your domain from your browser. We should be able to see a web page with a "Hello World" message and a button. By clicking on the button in the webpage it will trigger the lambda function which will change "Hello World" to your custom message. In our case our page is the following:
-```
-pathfinder.io
-```
-If configured correctly, we should be able to see the "Hello World" and after clicking the button we should see that the message has changed to "Hello [YOUR NAME HERE]".
+Now for testing, you should be able to access your website by accessing your domain from your browser. We should be able to see a web page with a "Hello World" message and a button. By clicking on the button on the webpage it will trigger the lambda function which will change "Hello World" to your custom message. If configured correctly, we should be able to see the "Hello World" and after clicking the button we should see that the message has changed to "Hello [YOUR NAME HERE]".

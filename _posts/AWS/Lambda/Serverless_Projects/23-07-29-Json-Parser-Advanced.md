@@ -2,7 +2,7 @@
 title: Advanced JSON Parser Project
 date: 2023-07-29 07:35:00 -700
 categories: [Aws-lambda,Serverless-Projects]
-tags: [aws,lambda,sqs,serverless-projects]
+tags: [aws,lambda,dynamodb,sqs,serverless-projects]
 ---
 
 ## Advanced JSON Parser Project

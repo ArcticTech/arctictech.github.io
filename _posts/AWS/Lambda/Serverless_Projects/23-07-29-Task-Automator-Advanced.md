@@ -2,7 +2,7 @@
 title: Advanced Task Automator Project
 date: 2023-07-29 08:30:00 -700
 categories: [Aws-lambda,Serverless-Projects]
-tags: [aws,lambda,sqs,eventbridge,serverless-projects]
+tags: [aws,lambda,dynamodb,sqs,eventbridge,serverless-projects]
 ---
 
 ## Advanced Task Automator Project
