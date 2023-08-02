@@ -1,6 +1,6 @@
 ---
 title: Serverless Rest API Project
-date: 2023-07-29 09:30:00 -700
+date: 2023-07-29 11:30:00 -700
 categories: [Aws-lambda,Serverless-Projects]
 tags: [aws,lambda,dynamodb,api-gateway,route53,serverless-projects]
 ---

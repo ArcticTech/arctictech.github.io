@@ -41,6 +41,8 @@ venv/
 # Github Pages
 *.gem
 .bundle
+.sass-cache
+.jekyll-metadata
 .jekyll-cache
 Gemfile.lock
 vendor/

@@ -1,6 +1,6 @@
 ---
 title: Serverless Website Project
-date: 2023-07-29 09:30:00 -700
+date: 2023-07-29 11:00:00 -700
 categories: [Aws-lambda,Serverless-Projects]
 tags: [aws,lambda,s3,route53,serverless-projects]
 ---
