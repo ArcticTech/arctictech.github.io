@@ -5,34 +5,30 @@ categories: [Aws-s3]
 tags: [aws,s3]
 ---
 
-## Cross Region and Cross Account Replication
-This is a guide on configuring Cross Region Replication and Cross Account Replicaation on your S3 bucket, to allow you to replicate the contents of your S3 bucket from one region to another or from one account to another. Note: as of June 2020 you cannot replicate multiple buckets in multiple regions or accounts.
+## Cross-Region and Cross-Account Replication
+This is a guide on configuring Cross Region Replication and Cross Account Replication on your S3 bucket, to allow you to replicate the contents of your S3 bucket from one region to another or from one account to another. Note: as of June 2020 you cannot replicate multiple buckets in multiple regions or accounts.
 
 ### Objective
 Once set up, we should have a good understanding of the process of using Cross Region and Cross Account Replication to replicate your objects in buckets from one region to another region or account.
 
-### Cross Region Replicate
+### Cross-Region Replicate
 For this, we will need to setup two S3 buckets in two different regions in the same account.
 
 1. Create ```my-us-east-1``` bucket in ```us-east-1``` and create ```my-us-west-2``` bucket in ```us-west-2```.
-2. In IAM, create a new S3 role. Do not attach any policies to it. Once we add this role to our replication rule, it will automatically create and attach the right policy to this role.
+2. Activate Versioning in BOTH buckets. Properties > Versioning > Enable Versioning.
+3. Then, in your ```my-us-east-1``` bucket, go to Management > Replication Rules, click Create Replication Rules.
+4. Configure as follows. Leave everything else as default and click "Create".
 ```
-Role Name = "s3-cross-region-rep"
-```
-3. Activate Versioning in both buckets. Properties > Versioning > Enable Versioning.
-4. In your ```my-us-east-1``` bucket, go to Management > Replication > Add Rule.
-5. In the Replication Rule pop up configure as follows. Leave everything else as default and click "Create".
-```
-Set Source = "Entire bucket"
-Bucket in this account = "True"
+Set Source = "Apply to all objects in the bucket"
+Destination = "Choose a bucket in this account"
 Bucket Name = "my-us-west-2"
-IAM role = "s3-cross-region-rep"
+IAM role = "Create New Role"
 Rule name = "cross-region-rule"
 ```
-6. Now drop a file into your ```my-us-east-1``` bucket and you should see a copy of it appear in your ```my-us-west-2``` bucket.
+5. Now drop a file into your ```my-us-east-1``` bucket and you should see a copy of it appear in your ```my-us-west-2``` bucket.
 
-### Cross Account Replicate
-Creating cross account replication is slightly more complicated. We will need to setup two S3 buckets in two different accounts, does not matter which regions you put them in.
+### Cross-Account Replicate
+Creating cross-account replication is slightly more complicated. We will need to setup two S3 buckets in two different accounts, no matter which regions you put them in.
 
 1. Create ```my-source-account``` bucket in your Source Account and create ```my-destination-account``` bucket in your Destination Account.
 2. In IAM, create a new S3 role in your Source Account. Do not attach any policies to it.

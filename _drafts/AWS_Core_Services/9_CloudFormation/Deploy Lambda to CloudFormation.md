@@ -82,7 +82,7 @@ Now, we'll create a CloudFormation stack in the AWS console using the designer a
             site: 'https://aws.amazon.com/'
 ```
 
-2. Now copy the YAML code and we are going to paste it into CloudFormation template designer. Head to the CloudFormation service and click Create Stack. We will use the template designer to create our stack. Select "Create template in Desigh" and click "Create template in Design" to bring up the template designer.
+2. Now copy the YAML code and we are going to paste it into CloudFormation template designer. Head to the CloudFormation service and click Create Stack. We will use the template designer to create our stack. Select "Create a template in Design" and click "Create a template in Design" to bring up the template designer.
 
 3. In the template designer, click on the Template tab at the bottom and select the YAML option. We want to switch to YAML because the SAM file we downloaded is in YAML. Then paste the YAML code we copied into the code section.
 

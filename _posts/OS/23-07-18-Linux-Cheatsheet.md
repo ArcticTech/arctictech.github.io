@@ -66,6 +66,26 @@ Type :q! followed by enter to force quit.
 Type gg dG to delete all.
 ```
 
+11. Check if a process is still running:
+```
+ps aux | grep <script_name>
+```
+Here are the different states:
+* R: Running
+* S: Sleeping
+* T: Stopped
+* Z: Zombie (terminated but not fully cleaned up)
+* D: Uninterruptible sleep (usually related to I/O operations)
+
+12. To kill a process use the following. Note, in general, you don't want to kill a process in the ```S+``` state because it is waiting for an event to complete.
+```
+kill <Process ID>
+```
+To force kill all events associated with your script:
+```
+pkill -f <script_name>
+```
+
 ### Ubuntu
 1. Updating Ubuntu.
 ```

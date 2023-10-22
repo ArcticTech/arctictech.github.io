@@ -21,7 +21,7 @@ chrome://version/
 
 3. Install the driver that matches your Chrome's version.
 ```
-https://chromedriver.storage.googleapis.com/index.html
+https://googlechromelabs.github.io/chrome-for-testing/#stable
 ```
 
 4. Now you can start using selenium. Try the following code to use Selenium to log into Tradingview.

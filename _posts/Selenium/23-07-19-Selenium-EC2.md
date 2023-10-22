@@ -77,20 +77,20 @@ google-chrome --version
 ```
 4. Find the associated Chrome driver version:
 ```
-https://chromedriver.storage.googleapis.com/index.html
+https://googlechromelabs.github.io/chrome-for-testing/#stable
 ```
 5. Install the Chrome driver.
 ```
 mkdir -p chromedriver
 cd chromedriver
-curl -SL https://chromedriver.storage.googleapis.com/XXX.X.XXXX.XX/chromedriver_linux64.zip > chromedriver.zip
+curl -SL https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/XXX.X.XXXX.XX/linux64/chromedriver-linux64.zip > chromedriver.zip
 unzip chromedriver.zip
 mv chromedriver chromedriverXXX_X_X
 rm chromedriver.zip
 ```
 6. Check the version of your driver and make sure it matches the version of your Chrome.
 ```
-./chromedriver --version
+./chromedriverXXX_X_X --version
 ```
 
 ### Alternative: Install Headless Chrome

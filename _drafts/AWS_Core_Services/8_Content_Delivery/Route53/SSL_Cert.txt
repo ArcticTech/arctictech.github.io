@@ -1,0 +1,6 @@
+
+Guide to SSL Cert
+https://www.youtube.com/watch?v=ookzXuMr8eY&t=1s
+
+Github route53
+https://medium.com/@bschandu67/host-your-website-using-github-pages-aws-route53-and-aws-cloudfront-7345493d2ea6
