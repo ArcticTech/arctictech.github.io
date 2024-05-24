@@ -47,11 +47,15 @@ git pull
 git clone
 ```
 
-8. Fixing up a commit.
+8. Fixing up a commit, for combining multiple commits into one.
 ```
 git rebase -i
 ```
 
+9. Resetting a commit, if you want to redo a commit that you havent pushed yet.
+```
+git reset @~
+```
 
 
 
