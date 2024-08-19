@@ -12,6 +12,12 @@ tags: [aws,iam]
     "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "Permissions",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*"
+        },
+        {
             "Sid": "EditSelf",
             "Effect": "Allow",
             "Action": [
@@ -239,7 +245,7 @@ tags: [aws,iam]
             "Resource": "arn:aws:iam::*:user/admin"
         },
         {
-            "Sid": "UseAdmin",
+            "Sid": "UseAdminPolicy",
             "Effect": "Deny",
             "Action": [
                 "iam:*"

@@ -66,7 +66,12 @@ Type :q! followed by enter to force quit.
 Type gg dG to delete all.
 ```
 
-11. Check if a process is still running:
+11. Delete Swap Files:
+```
+find . -type f -name "*.sw[klmnop]" -delete
+```
+
+12. Check if a process is still running:
 ```
 ps aux | grep <script_name>
 ```
